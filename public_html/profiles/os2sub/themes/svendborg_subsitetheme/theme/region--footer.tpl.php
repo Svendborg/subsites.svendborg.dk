@@ -67,9 +67,7 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
         }
       */
       ?>
-      <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
-      <?php //print $content; ?>
-      <?php if ($content_attributes): ?></div><?php endif; ?>
+
       </div>
       </div>
     </div>
@@ -137,6 +135,9 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
 
         </div> 
          <div class="col-xs-12 footer-copyright">
+                 <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
+      <?php print render($content); ?>
+      <?php if ($content_attributes): ?></div><?php endif; ?>      
           Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
         </div>
         </div>
