@@ -135,9 +135,24 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
 
         </div> 
          <div class="col-xs-12 footer-copyright">
-                 <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
-      <?php print render($content); ?>
-      <?php if ($content_attributes): ?></div><?php endif; ?>      
+          <?php 
+            if ($content_attributes): ?>
+            <div<?php print $content_attributes; ?>>
+          <?php 
+            endif; ?>
+          <?php 
+            if ($content_attributes): ?>
+            </div>
+          <?php 
+            endif; ?>
+          <?php if (theme_get_setting('menu_footer', 'svendborg_subsitetheme')):?>
+            <?php 
+              if (module_exists('footer_sitemap')) {
+                $sitemapmenu = module_invoke('footer_sitemap','block_view','footer_sitemap');
+                print render($sitemapmenu['content']);
+                }
+              ?>
+          <?php endif; ?>  
           Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
         </div>
         </div>

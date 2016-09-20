@@ -37,6 +37,14 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('menu_width'),
     '#description'   => t("Only valid with left menu position."),
   );
+  
+    $form['svendborg_subsitetheme_setting']['menu_location']['menu_footer'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Footer menu'),
+    '#default_value' => theme_get_setting('menu_footer'),
+    '#description'   => t("Show footer menu."),
+  );
+  
 
   if (theme_get_setting('menu_width') == TRUE) {
     $form['general']['grid']['grid_region_columns']['bootstrap_region_grid-sidebar_first']['#value'] = 3;
