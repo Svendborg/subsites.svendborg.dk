@@ -193,6 +193,9 @@ Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
   );
   $export['footer_sitemap_menu'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'scheduler_date_format';
   $strongarm->value = 'd/m/Y H:i:s';
   $export['scheduler_date_format'] = $strongarm;
