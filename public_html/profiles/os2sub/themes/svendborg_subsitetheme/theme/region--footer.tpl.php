@@ -44,14 +44,7 @@
             <?php print $page['footer_blocks']['block_1']; ?>
           </div>    
 
-          <?php if (theme_get_setting('menu_footer', 'svendborg_subsitetheme')):?>
-            <?php 
-              if (module_exists('footer_sitemap')) {
-                $sitemapmenu = module_invoke('footer_sitemap','block_view','footer_sitemap');
-                print render($sitemapmenu['content']);
-                }
-              ?>
-          <?php endif; ?>  
+
 
       </div>
       </div>
@@ -68,6 +61,17 @@
     <div class="lcontainer-fluid clearfix footer-contacts" id="footer-contacts">
       <div class="container">
         <div class="row">
+          <div class="col-xs-12 social-icons">
+            <?php if (theme_get_setting('menu_footer', 'svendborg_subsitetheme')):?>
+              <?php 
+                if (module_exists('footer_sitemap')) {
+                  $sitemapmenu = module_invoke('footer_sitemap','block_view','footer_sitemap');
+                  print render($sitemapmenu['content']);
+                  }
+                ?>
+              <?php endif; ?>  
+          </div>
+          
         <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')
                 ||theme_get_setting('twitter_url', 'svendborg_subsitetheme') 
                 ||theme_get_setting('linkedin_url', 'svendborg_subsitetheme')
