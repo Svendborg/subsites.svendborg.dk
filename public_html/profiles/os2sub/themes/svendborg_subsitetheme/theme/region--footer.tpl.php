@@ -61,7 +61,7 @@
     <div class="lcontainer-fluid clearfix footer-contacts" id="footer-contacts">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 social-icons">
+          <div class="col-xs-12 footer-menu-wrapper">
             <?php if (theme_get_setting('menu_footer', 'svendborg_subsitetheme')):?>
               <?php 
                 if (module_exists('footer_sitemap')) {
