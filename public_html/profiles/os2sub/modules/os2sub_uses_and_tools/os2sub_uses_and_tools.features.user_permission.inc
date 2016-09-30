@@ -1073,7 +1073,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['display EU Cookie Compliance popup'] = array(
     'name' => 'display EU Cookie Compliance popup',
     'roles' => array(
-      'subsiteadmin' => 'subsiteadmin',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'eu_cookie_compliance',
   );
