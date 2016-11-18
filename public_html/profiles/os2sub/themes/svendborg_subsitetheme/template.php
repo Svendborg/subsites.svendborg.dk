@@ -1119,10 +1119,13 @@ function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_n
       'brand-lightgreen' => '#85c500',
       'gradient-light'   => '#0086ca',
       'gradient-lightyellow' => '#d3d100',
-      'introtekst'       => '#2880b9',
+      'introtekst'       => '#0086ca',
+      'baggrund' => '#FFFFFF',
+      'menu-baggrund' => '#FFFFFF',
+      'menu-link' => '#333333',
     );
   }
-  foreach ($color_palette as $key => $value) {
+    foreach ($color_palette as $key => $value) {
     $color_palette['@' . $key] = $color_palette[$key];
     unset($color_palette[$key]);
   }
