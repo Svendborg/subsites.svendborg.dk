@@ -40,36 +40,12 @@
                   title="<?php print $page['site_name'] ?>" />
               <?php endif;?> 
           </div>
-          <div class="col-sm-10 col-sx-12">  
+          <div class="col-sm-10 col-sx-12">
             <?php print $page['footer_blocks']['block_1']; ?>
           </div>    
-      <?php /*
-       $tree = menu_tree_all_data('menu-indholdsmenu', $link = NULL, $max_depth = 3);
 
-        $count = 0;
-        foreach ($tree as $key => $menu_item) {
-          if (!$menu_item['link']['hidden']) {
-            if ($count > 3) {
-              continue;
-            }
-            $path = $alias = drupal_get_path_alias($menu_item['link']['link_path']);
-            print "<div class='menu-". $menu_item['link']['mlid']. " footer-indholsdmenu col-xs-12 col-sm-6 col-md-3'>";
-print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
-            <a title='" . $menu_item['link']['link_title'] . "' href='/". $path ."' class='" . $menu_item['link']['link_title']. "'>" . $menu_item['link']['link_title'] . "</a></h2>";
-            if($menu_item['link']['has_children'] && !$menu_item['link']['hidden']) {
 
-              $tree_display =menu_tree_output($menu_item['below']);
-              print render($tree_display);
-            }
-            print "</div>";
-            $count += 1;
-          }
-        }
-      */
-      ?>
-      <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
-      <?php //print $content; ?>
-      <?php if ($content_attributes): ?></div><?php endif; ?>
+
       </div>
       </div>
     </div>
@@ -85,6 +61,17 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
     <div class="lcontainer-fluid clearfix footer-contacts" id="footer-contacts">
       <div class="container">
         <div class="row">
+          <div class="col-xs-12 footer-menu-wrapper">
+            <?php if (theme_get_setting('menu_footer', 'svendborg_subsitetheme')):?>
+              <?php 
+                if (module_exists('footer_sitemap')) {
+                  $sitemapmenu = module_invoke('footer_sitemap','block_view','footer_sitemap');
+                  print render($sitemapmenu['content']);
+                  }
+                ?>
+              <?php endif; ?>  
+          </div>
+          
         <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')
                 ||theme_get_setting('twitter_url', 'svendborg_subsitetheme') 
                 ||theme_get_setting('linkedin_url', 'svendborg_subsitetheme')
@@ -137,6 +124,17 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
 
         </div> 
          <div class="col-xs-12 footer-copyright">
+          <?php 
+            if ($content_attributes): ?>
+            <div<?php print $content_attributes; ?>>
+          <?php 
+            endif; ?>
+          <?php 
+            if ($content_attributes): ?>
+            </div>
+          <?php 
+            endif; ?>
+
           Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
         </div>
         </div>

@@ -13,16 +13,22 @@ $info=array(
       'gradient-light' => t('Contact block color'),
       'gradient-lightyellow' => t('Faktabox'),
       'introtekst' => t('Introtekst'),
+      'baggrund' => t('Baggrund'),
+      'menu-baggrund' => t('Menubaggrund'),
+      'menu-link' => t('Menulinks'),
     ),
    'schemes' => array(
       'default' => array(
         'title' => t('Base scheme'),
         'colors' => array(
-                'brand-lightblue' => '#2880b9',
-                'brand-lightgreen' => '#85c500',
-                'gradient-light' => '#0086ca',
-                'gradient-lightyellow' => '#d3d100',
-                'introtekst' => '#0086ca',
+                'brand-lightblue'       => '#2880b9',
+                'brand-lightgreen'      => '#85c500',
+                'gradient-light'        => '#0086ca',
+                'gradient-lightyellow'  => '#d3d100',
+                'introtekst'            => '#0086ca',
+                'baggrund'              => '#FFFFFF',
+                'menu-baggrund'         => '#FFFFFF',
+                'menu-link'             => '#333333',
         ),
       ),
    
