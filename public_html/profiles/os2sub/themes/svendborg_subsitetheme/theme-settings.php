@@ -46,7 +46,8 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
   );
   
 
-  if (theme_get_setting('menu_width') == TRUE) {
+  // Note: changed "TRUE" to "0" but I really doubt if this is the correct solution -- Riivo.
+  if (theme_get_setting('menu_width') == 0) {
     $form['general']['grid']['grid_region_columns']['bootstrap_region_grid-sidebar_first']['#value'] = 3;
   }
   else {
