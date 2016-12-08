@@ -1,0 +1,5 @@
+name = Custom Event Calendar Email Blocker
+description = A custom module that blocks the email sent by Event Calendar module.
+package = Event Calendar
+core = 7.x
+
