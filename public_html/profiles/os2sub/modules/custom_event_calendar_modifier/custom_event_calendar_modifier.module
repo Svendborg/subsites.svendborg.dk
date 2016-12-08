@@ -1,0 +1,73 @@
+<?php
+
+/*
+ * Implements hook_module_implements_alter()
+ *
+ * (Force the hook of this module to appear later than others.)
+ */
+function custom_event_calendar_modifier_module_implements_alter(&$module_list, $hook) {
+	if ($hook === 'form_alter') {
+		$temp = $module_list['custom_event_calendar_modifier'];
+		unset($module_list['custom_event_calendar_modifier']);
+		$module_list['custom_event_calendar_modifier'] = $temp;
+	}
+}
+
+
+/*
+ * Implements hook_form_alter()
+ */ 
+function custom_event_calendar_modifier_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'event_calendar_node_form') {
+
+		// Make events "approved" by default
+		// 1 - approved
+		// 2 - pending
+		// 3 - denied
+		$form['event_calendar_status']['und']['#default_value'][0] = '1';
+
+	} elseif ($form_id == 'event_calendar_settings') {
+		// Hide several fields
+		$form['event_calendar_email_reciepents']['#type'] = 'markup';
+		$form['event_calendar_email_reciepents']['#markup'] = '';
+
+		$form['event_calendar_email_reciepents']['event_calendar_email_reciepents_list']['#type'] = 'markup';
+		$form['event_calendar_email_reciepents']['event_calendar_email_reciepents_list']['#markup'] = '';
+
+		$form['event_calendar_email_admin']['#type'] = 'markup';
+		$form['event_calendar_email_admin']['#markup'] = '';
+
+		$form['event_calendar_email_admin']['event_calendar_email_admin_subject']['#type'] = 'markup';
+		$form['event_calendar_email_admin']['event_calendar_email_admin_subject']['#markup'] = '';
+
+		$form['event_calendar_email_admin']['event_calendar_email_admin_body']['#type'] = 'markup';
+		$form['event_calendar_email_admin']['event_calendar_email_admin_body']['#markup'] = '';
+
+		$form['event_calendar_email_user']['#type'] = 'markup';
+		$form['event_calendar_email_user']['#markup'] = '';
+
+		$form['event_calendar_email_user']['event_calendar_email_user_subject']['#type'] = 'markup';
+		$form['event_calendar_email_user']['event_calendar_email_user_subject']['#markup'] = '';
+
+		$form['event_calendar_email_user']['event_calendar_email_users_body']['#type'] = 'markup';
+		$form['event_calendar_email_user']['event_calendar_email_users_body']['#markup'] = '';
+
+		$form['actions']['submit']['#type'] = 'markup';
+		$form['actions']['submit']['#prefix'] = '<h5 style="text-align:center;">';
+		$form['actions']['submit']['#markup'] = t('Content of this page is unavailable.');
+		$form['actions']['submit']['#suffix'] = '</h5>';
+	}
+}
+
+
+/**
+ * Implements hook_mail_alter().
+ */
+function custom_event_calendar_modifier_mail_alter(&$message) {
+	// Disable email sending.
+	if ($message['id'] == 'event_calendar_admin'
+		|| $message['id'] == 'event_calendar_user') {
+		$message['send'] = FALSE;
+	}
+}
+
