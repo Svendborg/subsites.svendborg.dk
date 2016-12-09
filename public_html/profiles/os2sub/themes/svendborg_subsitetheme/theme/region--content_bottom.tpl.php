@@ -32,7 +32,6 @@
     <?php if ($content_attributes): ?></div><?php endif; ?>
  <?php if(!empty($page['page']['related_links'])) : ?>
      <?php if($page['page']['related_pages_type']=='links'):?>
-       here
       <div class="panel panel-primary related-pages links row">
         <div class="panel-body">
 
@@ -40,7 +39,6 @@
             <div class="page-link col-md-3 col-sm-6 col-xs-12">
                 <span>
               <?php if (isset($link['url'])): ?>
-                ?>
                 <?php print l($link['title'], $link['url'], array('attributes' => array('class' => $link['class']))); ?>
               <?php else: ?>
                 <?php print l($link['title'], drupal_get_path_alias('node/' . $link['nid']), array('attributes' => array('class' => $link['class']))); ?>
