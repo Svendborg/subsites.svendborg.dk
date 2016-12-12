@@ -9925,7 +9925,7 @@ fieldset[disabled] .btn-orange.active {
   background: none;
   color: #85c500;
 }
-.region-sidebar-first ul.menu ul.dropdown-menu li.active > a {
+.region-sidebar-first ul.menu ul.dropdown-menu li.active a {
   color: #85c500;
 }
 .region-sidebar-first ul.menu li {
@@ -9951,9 +9951,6 @@ fieldset[disabled] .btn-orange.active {
   display: block;
   margin-top: 5px;
   margin-bottom: 5px;
-}
-.region-sidebar-first ul.menu li.active-trail > ul.dropdown-menu > li > ul.dropdown-menu li ul.dropdown-menu {
-  margin-left: 15px;
 }
 .region-sidebar-first ul.menu li.active-trail li a {
   background: none;
