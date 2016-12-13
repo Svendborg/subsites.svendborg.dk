@@ -173,8 +173,13 @@
 				}
 			}
 			li.active {
-
 				a {
+					color: #404040;
+					&:hover {
+						color: @brand-lightgreen;
+					}
+				}
+				> a {
 					color: @brand-lightgreen;
 				}
 			}
@@ -207,8 +212,20 @@
 				display: block;
 				margin-top: 5px;
 				margin-bottom: 5px;
-
 			}
+
+			> ul.dropdown-menu {
+				> li {
+					> ul.dropdown-menu {
+						li {
+							ul.dropdown-menu {
+								margin-left: 15px;
+							}
+						}
+					}
+				}
+			}
+
 			li {
 				a {
 					background: none;
