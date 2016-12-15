@@ -1,0 +1,4 @@
+name = Custom Event Calendar Modifier
+description = A custom module that overrides some parts of Event Calendar module.
+core = 7.x
+
