@@ -68,7 +68,7 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
       'group_by_bundle' => 0,
       'show_scheme' => 0,
       'group_by_scheme' => 0,
-      'direct_download' => 0,
+      'direct_download' => 1,
       'image_extra_info' => array(
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
@@ -188,7 +188,7 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
       'group_by_bundle' => 0,
       'show_scheme' => 0,
       'group_by_scheme' => 0,
-      'direct_download' => 0,
+      'direct_download' => 1,
       'image_extra_info' => array(
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
