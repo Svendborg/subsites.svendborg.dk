@@ -35,7 +35,7 @@
      <div class="selfserv-block">
       <div class="panel panel-lightblue ">
         <div class="panel-heading">
-          <h3 class="panel-title"><?php print t('Selvbetjenings'); ?></h3>
+          <h3 class="panel-title"><?php print t('Selvbetjening'); ?></h3>
         </div>
         <div class="panel-body">
        
