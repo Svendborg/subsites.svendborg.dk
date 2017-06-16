@@ -10,6 +10,57 @@
 function os2web_paragraph_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'field_collection_item-field_os2web_paragraph-field_os2web_base_field_media'
+  $field_instances['field_collection_item-field_os2web_paragraph-field_os2web_base_field_media'] = array(
+    'bundle' => 'field_os2web_paragraph',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_os2web_base_field_media',
+    'label' => 'Bilag',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'pdf swf doc docx xlsx xls ppt pptx jpg jpeg gif png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 'document',
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 33,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_os2web_paragraph-field_os2web_paragraph_text'
   $field_instances['field_collection_item-field_os2web_paragraph-field_os2web_paragraph_text'] = array(
     'bundle' => 'field_os2web_paragraph',
@@ -125,6 +176,7 @@ function os2web_paragraph_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Bilag');
   t('Tekst');
   t('Titel');
 
