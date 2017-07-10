@@ -18,6 +18,20 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   //   var_dump($variables['page']['content']);
   // Remove all Taxonomy auto listings here.
 
+  
+  $node = menu_get_object();
+  if (is_object($node) && $node->type == 'os2web_base_contentpage') {
+    $nodeView = node_view($node, 'full');
+
+    $variables['page']['header'] = array(
+        '#theme_wrappers' => array('region'),
+        '#region' => 'header',
+        'content' => array(
+            '#markup' => drupal_render($nodeView['field_os2web_base_field_image'])),
+    );
+  }
+  
+  
   $term = NULL;
   if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
     $term = taxonomy_term_load(arg(2));
