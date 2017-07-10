@@ -81,6 +81,38 @@ function svendborg_image_styles_image_default_styles() {
     ),
   );
 
+  // Exported image style: svendborg_content_image_cropscale.
+  $styles['svendborg_content_image_cropscale'] = array(
+    'label' => 'svendborg_content_image_cropscale',
+    'effects' => array(
+      3 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 1138,
+          'height' => 400,
+          'anchor' => 'center-center',
+          'disable_scale' => 0,
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 0,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      4 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1138,
+          'height' => 400,
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: svendborg_spotbox.
   $styles['svendborg_spotbox'] = array(
     'label' => 'svendborg_spotbox',

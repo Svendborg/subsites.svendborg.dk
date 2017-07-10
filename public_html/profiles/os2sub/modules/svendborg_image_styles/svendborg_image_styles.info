@@ -36,5 +36,6 @@ features[file_display][] = image__teaser__file_field_slideshow
 features[image][] = full_width
 features[image][] = full_width_medium
 features[image][] = svendborg_content_image
+features[image][] = svendborg_content_image_cropscale
 features[image][] = svendborg_spotbox
-project path = profiles/os2web/modules
+project path = profiles/os2sub/modules
