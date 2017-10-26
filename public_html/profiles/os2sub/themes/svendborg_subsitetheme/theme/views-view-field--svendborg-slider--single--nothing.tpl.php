@@ -34,9 +34,10 @@
    preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_tag, $result);
    $image_uri = array_pop($result);
  
-    $overlay_class = '';
+   $overlay_class = '';
    $whitetext = '';
- 
+   $title_hidden = ((boolean)$node->field_skjul_titel['und'][0]['value']);
+
     if ((boolean)$node->field_hvid_tekst['und'][0]['value'])
       $whitetext = 'white';
       
@@ -61,11 +62,11 @@
 	    $html .= '<div class="row">';
 		$html .= '<div class="' . ($show_frontpage_nodes? 'col-sm-7' : 'text-center') . '">';
 		    $html .= '<div class="title ' . $whitetext .'">';
-			 if (!empty($node->field_banner_text['und'][0]['value']))
-                            $html .= $node->field_banner_text['und'][0]['value'];
-                         else
-                           $html .= $node->title; 
-                    
+			if (!empty($node->field_banner_text['und'][0]['value']))
+                $html .= $node->field_banner_text['und'][0]['value'];
+            else
+                $html .= (!$title_hidden) ? $node->title : '';
+        
 		    $html .= '</div>';
                     if (!empty($node->field_knap_link['und'][0]['url']) && !empty($node->field_knap_link['und'][0]['title']))
                         $html .= '<a href="' .$node->field_knap_link['und'][0]['url'] .'" class="btn gradient-deepdarkgreen">' . $node->field_knap_link['und'][0]['title'] . '</a>';
