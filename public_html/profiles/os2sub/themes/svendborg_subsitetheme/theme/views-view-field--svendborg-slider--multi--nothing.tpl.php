@@ -45,6 +45,8 @@ if (theme_get_setting('slider_overlay', 'svendborg_subsitetheme')) {
 else {
   $background = "background-image: url('" . $image_uri . "')";
 }
+
+$title_hidden = ((boolean)$node->field_skjul_titel['und'][0]['value']);
 $indicator_active_uri = file_create_url(drupal_get_path('theme', 'svendborg_subsitetheme') . '/images/slider_active.png');
 $indicator_inactive_uri = file_create_url(drupal_get_path('theme', 'svendborg_subsitetheme') . '/images/slider_inactive.png');
 $total_row = count($view->result);
@@ -81,7 +83,7 @@ if (isset($node->field_banner_vis_paa_sider['und']) && !empty($node->field_banne
     $html .= $node->field_banner_text['und'][0]['value'];
   }
   else {
-    $html .= $node->title;
+    $html .= (!$title_hidden) ? $node->title : '';
   }
 
   $html .= '</a>';
@@ -94,7 +96,7 @@ else {
     $html .= $node->field_banner_text['und'][0]['value'];
   }
   else {
-    $html .= $node->title;
+    $html .= (!$title_hidden) ? $node->title : '';
   }
 }
 $html .= '</div>';//class="title"

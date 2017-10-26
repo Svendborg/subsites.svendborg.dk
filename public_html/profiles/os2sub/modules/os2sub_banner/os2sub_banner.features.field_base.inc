@@ -10,6 +10,31 @@
 function os2sub_banner_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_skjul_titel'
+  $field_bases['field_skjul_titel'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_skjul_titel',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'no',
+        1 => 'yes',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_banner_billede'
   $field_bases['field_banner_billede'] = array(
     'active' => 1,
