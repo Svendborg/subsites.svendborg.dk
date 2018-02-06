@@ -9,7 +9,11 @@
  * Field handler to present the submission count of a node to the user.
  */
 class webform_handler_field_submission_count extends views_handler_field {
-  function construct() {
+
+  /**
+   *
+   */
+  public function construct() {
     parent::construct();
     $this->count_type = $this->definition['count_type'];
 
@@ -22,18 +26,27 @@ class webform_handler_field_submission_count extends views_handler_field {
     }
   }
 
-  function option_definition() {
+  /**
+   *
+   */
+  public function option_definition() {
     $options = parent::option_definition();
     $options['label'] = array('default' => '# of Submissions', 'translatable' => TRUE);
     return $options;
   }
 
-  function query() {
+  /**
+   *
+   */
+  public function query() {
     $this->ensure_my_table();
     $this->add_additional_fields();
   }
 
-  function render($values) {
+  /**
+   *
+   */
+  public function render($values) {
     global $user;
 
     $output = NULL;
@@ -44,9 +57,12 @@ class webform_handler_field_submission_count extends views_handler_field {
         $count = webform_get_submission_count($node->nid);
         $output = l($count, "node/$node->nid/webform-results");
       }
-      else {
+      elseif (webform_submission_access($node, NULL, 'list', $user)) {
         $count = webform_get_submission_count($node->nid, $user->uid);
         $output = l($count, "node/$node->nid/submissions");
+      }
+      else {
+        $output = webform_get_submission_count($node->nid);
       }
     }
     elseif ($this->count_type == 'users') {
@@ -57,4 +73,5 @@ class webform_handler_field_submission_count extends views_handler_field {
 
     return $output;
   }
+
 }

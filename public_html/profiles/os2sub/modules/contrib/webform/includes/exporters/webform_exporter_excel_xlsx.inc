@@ -1,6 +1,12 @@
 <?php
+
 /**
+ * @file
  * This exporter creates an XLSX file readable by newer versions of Excel.
+ */
+
+/**
+ *
  */
 class webform_exporter_excel_xlsx extends webform_exporter {
   /**
@@ -10,21 +16,27 @@ class webform_exporter_excel_xlsx extends webform_exporter {
   const DATE_REGEX_DATE = '/^((\d{4})(-(\d{2}))(-(\d{2})))$/';
   const DATE_REGEX_TIME = '/^(([T \s]?(\d{2}))(:(\d{2}))(:(\d{2}))?)?$/';
 
-  function add_row(&$file_handle, $data, $row_count) {
+  /**
+   *
+   */
+  public function add_row(&$file_handle, $data, $row_count) {
     $row = $row_count + 1;
     $col = 'A';
 
     $output = '<row>';
     $utc_timezone = new DateTimeZone('UTC');
     foreach ($data as $key => $value) {
+      // Strip UTF8 characters that are not legal in XML files.
+      // See http://www.w3.org/TR/xml/#charsets
+      // See http://stackoverflow.com/questions/3466035/how-to-skip-invalid-characters-in-xml-file-using-php
+      // @code
+      // Char ::= #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+      // @endcode
+      $value = preg_replace('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u', '', $value);
+
       $cell_position = $col . $row;
-      if (empty($value) && strlen($value) === 0) {
+      if (strlen($value) === 0) {
         // Skip empty cells.
-      }
-      elseif (is_numeric($value)) {
-        $output .= '<c r="' . $cell_position . '"><v>';
-        $output .= $value;
-        $output .= '</v></c>';
       }
       elseif (preg_match(self::DATE_REGEX_ANY, $value)) {
         // An Excel timestamp is the number of days since Jan 1, 1900, with
@@ -69,15 +81,15 @@ class webform_exporter_excel_xlsx extends webform_exporter {
           else {
             $style_format = 3;
           }
-  
+
           $output .= '<c r="' . $cell_position . '" s="' . $style_format . '"><v>';
           $output .= $excel_timestamp;
           $output .= '</v></c>';
         }
       }
       else {
-        $output .= '<c r="' . $cell_position . '" t="inlineStr"><is><t>';
-        $output .= htmlspecialchars($value, ENT_QUOTES);
+        $output .= '<c r="' . $cell_position . '" t="inlineStr"' . ($this->wrappable($row_count, $key, $value) ? ' s="4"' : '') . '><is><t>';
+        $output .= htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         $output .= '</t></is></c>';
       }
 
@@ -91,20 +103,27 @@ class webform_exporter_excel_xlsx extends webform_exporter {
     @fwrite($file_handle, $output);
   }
 
-  function bof(&$file_handle) {
-    // Our beginning of file needs to include unknown data (the number of
-    // columns and rows) at this point. Instead of writing the true BOF, we
-    // output enough empty space to fill in the BOF later.
-    // See webform_exporter_excel_xlsx::eof().
+  /**
+   * Output space for the BOF.
+   *
+   * Our beginning of file needs to include unknown data (the number of columns
+   * and rows) at this point. Instead of writing the true BOF, we output enough
+   * empty space to fill in the BOF later. See
+   * webform_exporter_excel_xlsx::eof().
+   */
+  public function bof(&$file_handle) {
     $output = str_repeat(' ', 1024);
     @fwrite($file_handle, $output . "\n");
   }
 
-  function eof(&$file_handle, $row_count, $col_count) {
-    // We output a chunk of empty data in webform_exporter_excel_xlsx::bof()
-    // to leave room for our real header, which includes the important
-    // <dimension> tag. This is required for proper importing into Google Docs.
-
+  /**
+   * Output the BOF and end the file.
+   *
+   * We output a chunk of empty data in webform_exporter_excel_xlsx::bof() to
+   * leave room for our real header, which includes the important <dimension>
+   * tag. This is required for proper importing into Google Docs.
+   */
+  public function eof(&$file_handle, $row_count, $col_count) {
     // Convert column count to letter representation.
     $col = 'A';
     for ($n = 1; $n < $col_count; $n++) {
@@ -128,16 +147,19 @@ class webform_exporter_excel_xlsx extends webform_exporter {
     fwrite($file_handle, $eof);
   }
 
-  function post_process(&$results) {
+  /**
+   *
+   */
+  public function post_process(&$results) {
     // Our download file is currently a single XML sheet file. We need to add
     // the peripheral XML files to make this into a XLSX directory, then zip it.
     $file_uri = $results['file_name'];
-    $zip_uri = drupal_tempnam('temporary://', 'webform_');
+    $zip_uri = _webform_export_tempname();
 
     // ZipArchive does not support stream wrappers, convert to filesystem path.
     $zip_filepath = drupal_realpath($zip_uri);
     $file_filepath = drupal_realpath($file_uri);
-    $zip = new ZipArchive;
+    $zip = new ZipArchive();
     if ($zip->open($zip_filepath, ZipArchive::CREATE) === TRUE) {
       // Create a bare-bones Office Open XML format directory structure. This is
       // based on the sample simple XLSX file at
@@ -160,11 +182,18 @@ class webform_exporter_excel_xlsx extends webform_exporter {
 
       // Switch the results file name to the new zip (xlsx) file.
       unlink($file_uri);
-      rename($zip_uri, $file_uri);
+      if (!@rename($zip_uri, $file_uri)) {
+        // The file could not be renamed, probably due to different stream wrappers during drush wfx execution.
+        copy($zip_uri, $file_uri);
+        unlink($zip_uri);
+      }
     }
   }
 
-  function set_headers($filename) {
+  /**
+   *
+   */
+  public function set_headers($filename) {
     drupal_add_http_header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     drupal_add_http_header('Content-Disposition', "attachment; filename=$filename.xlsx");
     drupal_add_http_header('Pragma', 'public');
@@ -174,7 +203,7 @@ class webform_exporter_excel_xlsx extends webform_exporter {
   /**
    * Return all the parts needed to assemble a bare-bones XLSX package.
    */
-  function xlsx_parts() {
+  public function xlsx_parts() {
     $parts['_rels'] = '';
     $parts['_rels/.rels'] = <<<EOL
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -199,11 +228,14 @@ EOL;
   <fills count="1"><fill><patternFill patternType="none"/></fill></fills>
   <borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders>
   <cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>
-  <cellXfs count="4">
+  <cellXfs count="5">
     <xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>
     <xf numFmtId="14" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/>
     <xf numFmtId="18" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/>
     <xf numFmtId="22" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/>
+    <xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1">
+      <alignment wrapText="1"/>
+    </xf>
   </cellXfs>
   <cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>
   <dxfs count="0"/>
