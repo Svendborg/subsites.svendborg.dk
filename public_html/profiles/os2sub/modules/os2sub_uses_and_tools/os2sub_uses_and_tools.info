@@ -5,7 +5,6 @@ package = OS2Sub
 version = 7.x-1.0
 project = os2sub_uses_and_tools
 dependencies[] = admin_menu
-dependencies[] = advagg
 dependencies[] = block
 dependencies[] = contextual
 dependencies[] = ctools
