@@ -9972,7 +9972,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   color: #404040;
   font-size: 14px;
   font-weight: bold;
-  padding: 5px 0px;
+  padding: 0px 0px 9px 0px;
   text-transform: uppercase;
   font-family: 'Open Sans Semibold', Geneva, Verdana, sans-serif;
 }
@@ -9980,9 +9980,11 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
 .header_fixed .navbar-nav > li > a.active-trail {
   border-bottom: 4px solid #85c500;
   background: none;
+  padding-bottom: 5px;
 }
 .header_fixed .navbar-nav > li > a:hover {
   border-bottom: 4px solid #85c500;
+  padding-bottom: 5px;
   background: none;
 }
 @media (max-width: 767px) {
@@ -10072,6 +10074,10 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
 @media all and (min-width: 751px) {
   .header_fixed .header_main_menu {
     margin-top: 25px;
+  }
+  .header_fixed .header_main_menu nav[role="navigation"] .nav_main_menu {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 @media (min-width: 768px) {
