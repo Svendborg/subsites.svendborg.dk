@@ -3137,6 +3137,7 @@ function os2web_base_field_default_field_instances() {
       'default_image' => 0,
       'epsacrop' => array(
         'styles' => array(
+          'nyheder_140x140' => 'nyheder_140x140',
           'os2sub_220x130' => 'os2sub_220x130',
           'os2sub_300x175' => 'os2sub_300x175',
           'os2sub_banner' => 0,
