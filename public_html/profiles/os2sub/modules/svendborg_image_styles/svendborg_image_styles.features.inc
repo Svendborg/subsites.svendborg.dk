@@ -51,6 +51,37 @@ function svendborg_image_styles_image_default_styles() {
     ),
   );
 
+  // Exported image style: nyheder_140x140.
+  $styles['nyheder_140x140'] = array(
+    'label' => 'Nyheder (140x140)',
+    'effects' => array(
+      4 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 140,
+          'height' => 140,
+          'anchor' => 'center-center',
+          'disable_scale' => 0,
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 0,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      5 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 140,
+          'height' => 140,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: svendborg_content_image.
   $styles['svendborg_content_image'] = array(
     'label' => 'svendborg_content_image',

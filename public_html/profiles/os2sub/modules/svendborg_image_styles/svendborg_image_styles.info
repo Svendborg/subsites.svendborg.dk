@@ -38,5 +38,6 @@ features[file_display][] = image__teaser__file_field_photoswipe
 features[file_display][] = image__teaser__file_field_slideshow
 features[image][] = full_width
 features[image][] = full_width_medium
+features[image][] = nyheder_140x140
 features[image][] = svendborg_content_image
 features[image][] = svendborg_spotbox
