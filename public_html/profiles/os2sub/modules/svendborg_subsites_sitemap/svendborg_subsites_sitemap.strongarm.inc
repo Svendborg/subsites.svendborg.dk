@@ -80,7 +80,7 @@ function svendborg_subsites_sitemap_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_map_show_front';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['site_map_show_front'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -117,7 +117,7 @@ function svendborg_subsites_sitemap_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_map_show_titles';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['site_map_show_titles'] = $strongarm;
 
   $strongarm = new stdClass();
