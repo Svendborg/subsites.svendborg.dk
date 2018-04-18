@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Svendborg subsites sitemap feature.
+ */
+
+include_once 'svendborg_subsites_sitemap.features.inc';
