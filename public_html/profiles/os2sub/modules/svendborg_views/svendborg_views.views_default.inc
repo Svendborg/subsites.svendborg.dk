@@ -2037,7 +2037,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['settings'] = array(
-    'image_style' => 'medium',
+    'image_style' => 'nyheder_140x140',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
