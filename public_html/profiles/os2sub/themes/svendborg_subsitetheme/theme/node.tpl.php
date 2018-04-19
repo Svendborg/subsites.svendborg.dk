@@ -107,8 +107,13 @@
         <?php print render($content['field_os2web_base_field_lead_img']); ?>
       <?php endif; ?>
     <?php else : ?>
+
+    <?php if(isset($content['field_os2web_base_field_banner'])) : ?>
+      <?php print render($content['field_os2web_base_field_banner']); ?>
+    <?php else: ?>
       <?php print render($content['field_os2web_base_field_image']); ?>
-     
+    <?php endif; ?>
+        
     <?php endif; ?>
           </div> 
     <?php if ($node->type != 'os2web_base_contentpage' &&  $node->type != 'os2web_borger_dk_article' && $node->type != 'os2web_base_gallery'): ?>
@@ -142,7 +147,9 @@
 
       if ($node->type = 'os2web_base_contentpage'): 
             if(isset($content['field_os2web_base_isproject'])) : 
-
+              if(isset($content['field_os2web_base_isproject_desc'])) :
+                print render($content['field_os2web_base_isproject_desc']);
+              endif;
               if (isset($sections)): print $sections; 
               endif;
             endif;  

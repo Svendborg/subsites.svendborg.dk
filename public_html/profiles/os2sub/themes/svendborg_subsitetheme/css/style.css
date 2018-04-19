@@ -11268,6 +11268,9 @@ h4.phone a:hover {
   max-width: 100%;
   min-width: auto;
 }
+.node.node-os2web-base-contentpage.node--os2web_base_contentpage--full .field.field-name-field-os2web-base-isproject-desc {
+  margin-bottom: 20px;
+}
 #nyheder-carousel-large {
   background-color: #fff;
   border-radius: 3px 3px;
