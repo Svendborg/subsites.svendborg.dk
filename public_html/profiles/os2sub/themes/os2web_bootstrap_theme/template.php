@@ -43,6 +43,7 @@ function os2web_theme_breadcrumb($variables) {
  * Implements template_preprocess_region().
  */
 function os2web_bootstrap_theme_preprocess_region(&$variables) {
+  global $theme;
   $variables['page'] = &drupal_static('os2web_bootstrap_theme_preprocess_page_variables');
   $region = $variables['region'];
 
@@ -56,8 +57,11 @@ function os2web_bootstrap_theme_preprocess_region(&$variables) {
       break;
 
     case 'sidebar_first':
+      $attributes['class'][] = bootstrap_setting('sidebar_first_class', $theme, 'os2web_bootstrap', 'col-sm-3');
+      break;
+
     case 'sidebar_second':
-      $attributes['class'][] = 'col-sm-3';
+      $attributes['class'][] = bootstrap_setting('sidebar_second_class', $theme, 'os2web_bootstrap', 'col-sm-3');
       break;
 
     case 'content';
@@ -65,10 +69,10 @@ function os2web_bootstrap_theme_preprocess_region(&$variables) {
       $sidebar_second_elements = element_children($variables['page']['page']['sidebar_second']);
       // Add information about the number of sidebars.
       if ($sidebar_first_elements && $sidebar_second_elements) {
-        $attributes['class'][] = "col-sm-6";
+        $attributes['class'][] = bootstrap_setting('content_class_two', $theme, 'os2web_bootstrap', 'col-sm-6');
       }
       elseif ($sidebar_first_elements || $sidebar_second_elements) {
-        $attributes['class'][] = "col-sm-9";
+        $attributes['class'][] = bootstrap_setting('content_class', $theme, 'os2web_bootstrap', 'col-sm-9');
       }
       else {
         $attributes['class'][] = "col-sm-12";
