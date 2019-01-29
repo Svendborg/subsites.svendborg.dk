@@ -46,15 +46,35 @@ function os2web_bootstrap_theme_preprocess_region(&$variables) {
   $variables['page'] = &drupal_static('os2web_bootstrap_theme_preprocess_page_variables');
   $region = $variables['region'];
 
+  $attributes = &$variables['attributes_array'];
+  $attributes['class'] = $variables['classes_array'];
+
   // Handle regions.
   switch ($region) {
     case 'navigation':
       $variables['content_attributes_array']['class'][] = 'container';
       break;
-  }
 
-  $attributes = &$variables['attributes_array'];
-  $attributes['class'] = $variables['classes_array'];
+    case 'sidebar_first':
+    case 'sidebar_second':
+      $attributes['class'][] = 'col-sm-3';
+      break;
+
+    case 'content';
+      $sidebar_first_elements = element_children($variables['page']['page']['sidebar_first']);
+      $sidebar_second_elements = element_children($variables['page']['page']['sidebar_second']);
+      // Add information about the number of sidebars.
+      if ($sidebar_first_elements && $sidebar_second_elements) {
+        $attributes['class'][] = "col-sm-6";
+      }
+      elseif ($sidebar_first_elements || $sidebar_second_elements) {
+        $attributes['class'][] = "col-sm-9";
+      }
+      else {
+        $attributes['class'][] = "col-sm-12";
+      }
+      break;
+  }
 
   $regions = system_region_list($GLOBALS['theme_key']);
   // Add "column" classes to regions.
@@ -103,7 +123,8 @@ function os2web_bootstrap_theme_process_page(&$variables, $hook) {
 function os2web_bootstrap_theme_preprocess_page(&$variables, $hook) {
   // Ensure each region has the correct theme wrappers.
   foreach (system_region_list($GLOBALS['theme_key']) as $name => $title) {
-    if (!$variables['page'][$name]['#theme_wrappers']) {
+    if (empty($variables['page'][$name]['#theme_wrappers'])
+      && !in_array($name, array('sidebar_first', 'sidebar_second', 'content'))) {
       $variables['page'][$name]['#theme_wrappers'] = array('region');
       $variables['page'][$name]['#region'] = $name;
     }

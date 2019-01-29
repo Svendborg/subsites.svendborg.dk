@@ -380,6 +380,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   }
 
+  $page = &drupal_static('os2web_bootstrap_theme_preprocess_page_variables');
+  $page = array_merge($page, $variables);
 }
 
 /**
