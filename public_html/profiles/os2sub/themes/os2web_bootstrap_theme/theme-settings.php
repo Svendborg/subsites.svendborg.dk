@@ -54,7 +54,7 @@ function os2web_bootstrap_theme_form_system_theme_settings_alter(&$form, $form_s
   );
   $form['os2web_bootstrap']['container']['os2web_bootstrap_sidebar_second_class'] = array(
     '#type' => 'textfield',
-    '#title' => t('First sidebar column classes'),
+    '#title' => t('Second sidebar column classes'),
     '#default_value' => bootstrap_setting('sidebar_second_class', $theme, 'os2web_bootstrap'),
     '#description' => t('If empty "col-sm-3" class will be used')
   );
