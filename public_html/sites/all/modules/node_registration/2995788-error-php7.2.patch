@@ -1,0 +1,13 @@
+diff --git a/includes/node_registration.entity.inc b/includes/node_registration.entity.inc
+index 7c37625..bc685c1 100644
+--- a/includes/node_registration.entity.inc
++++ b/includes/node_registration.entity.inc
+@@ -146,7 +146,7 @@ class NodeRegistrationController extends EntityAPIController {
+   /**
+    * Override save() to add automatic base column values from other base column values.
+    */
+-  public function save($registration) {
++  public function save($registration, DatabaseTransaction $transaction = NULL) {
+     // Add `type` and `node_type` from `node` or `nid`.
+     if (empty($registration->type) || empty($registration->node_type)) {
+       $node = NULL;
