@@ -146,7 +146,7 @@ class NodeRegistrationController extends EntityAPIController {
   /**
    * Override save() to add automatic base column values from other base column values.
    */
-  public function save($registration) {
+  public function save($registration, DatabaseTransaction $transaction = NULL) {
     // Add `type` and `node_type` from `node` or `nid`.
     if (empty($registration->type) || empty($registration->node_type)) {
       $node = NULL;
