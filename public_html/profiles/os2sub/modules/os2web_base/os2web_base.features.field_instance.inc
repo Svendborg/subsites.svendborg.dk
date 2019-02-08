@@ -1773,7 +1773,6 @@ function os2web_base_field_default_field_instances() {
         'module' => 'field_collection_fieldset',
         'settings' => array(
           'add' => 'Tilføj',
-          'collapsed' => 1,
           'collapsible' => 1,
           'delete' => 'Slet',
           'description' => 1,
