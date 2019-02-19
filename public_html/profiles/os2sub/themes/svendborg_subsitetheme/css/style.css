@@ -6602,6 +6602,10 @@ body.toolbar-drawer {
 .node .field-name-field-os2web-paragraph {
   margin-top: 20px;
 }
+.page-node-add .panel-body.panel-collapse.fade,
+.page-node-edit .panel-body.panel-collapse.fade {
+  opacity: 1;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
