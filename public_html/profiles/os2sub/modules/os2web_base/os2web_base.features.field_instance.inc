@@ -1774,6 +1774,7 @@ function os2web_base_field_default_field_instances() {
         'settings' => array(
           'add' => 'Tilføj',
           'collapsible' => 1,
+          'collapsed' => 1,
           'delete' => 'Slet',
           'description' => 1,
           'edit' => 'Redigér',
