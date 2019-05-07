@@ -18,3 +18,5 @@ public_html/sites/cbuf-svendborg-subsite.dd
 /public_html/sites/svendborg-subsite-cittaslow.dd
 /public_html/sites/svendborg-subsite-socialpsykiatri.dd
 /public_html/sites/svendborg-subsite.dd
+.DS_Store
+.idea
