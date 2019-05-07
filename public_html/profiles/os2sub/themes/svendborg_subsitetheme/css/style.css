@@ -6575,6 +6575,7 @@ body.toolbar-drawer {
 }
 .field-collection-view > .panel > .panel-heading {
   text-align: left;
+  color: #FFF;
 }
 .field-collection-view > .panel.collapsed > .panel-heading {
   border-bottom-right-radius: 3px;
@@ -6591,13 +6592,16 @@ body.toolbar-drawer {
   display: inline-block;
   float: right !important;
   content: "–";
-  color: FFF;
+  color: #FFF;
   line-height: 15px;
   font-size: 30px;
 }
-.field-collection-view > .panel.collapsed > .panel-heading a.panel-title::before {
+.field-collection-view > .panel > .panel-heading a.panel-title.collapsed::before {
   content: "+";
   line-height: 20px;
+}
+.field-collection-view > .panel > .panel-body.collapsed {
+  display: none;
 }
 .node .field-name-field-os2web-paragraph {
   margin-top: 20px;

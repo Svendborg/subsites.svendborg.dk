@@ -193,8 +193,8 @@ create_dirs() {
 
 create_vhost() {
   debug "Adding and enabling $SITENAME vhost"
-  cp "$VHOSTTEMPLATE" "/etc/apache2/sites-available/$SITENAME"
-  perl -p -i -e "s/\[domain\]/$SITENAME/g" "/etc/apache2/sites-available/$SITENAME"
+  cp "$VHOSTTEMPLATE" "/etc/apache2/sites-available/$SITENAME.conf"
+  perl -p -i -e "s/\[domain\]/$SITENAME/g" "/etc/apache2/sites-available/$SITENAME.conf"
   a2ensite "$SITENAME" >/dev/null
   debug "Reloading Apache2"
   /etc/init.d/apache2 reload >/dev/null
