@@ -227,12 +227,14 @@ function os2sub_projektside_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Forbindelse: Indhold: Projektsider (field_os2web_base_isproject_part) */
   $handler->display->display_options['relationships']['field_os2web_base_isproject_part_nid']['id'] = 'field_os2web_base_isproject_part_nid';
   $handler->display->display_options['relationships']['field_os2web_base_isproject_part_nid']['table'] = 'field_data_field_os2web_base_isproject_part';
   $handler->display->display_options['relationships']['field_os2web_base_isproject_part_nid']['field'] = 'field_os2web_base_isproject_part_nid';
+  $handler->display->display_options['relationships']['field_os2web_base_isproject_part_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_os2web_base_isproject_part_nid']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Felt: Billede */
