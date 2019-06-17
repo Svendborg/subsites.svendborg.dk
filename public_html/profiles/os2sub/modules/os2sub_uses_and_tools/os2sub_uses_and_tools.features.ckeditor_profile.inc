@@ -115,25 +115,25 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
             'buttons' => array(
               'linkit' => array(
                 'label' => 'Linkit',
-                'icon' => 'linkit.png',
+                'icon' => 'icons/linkit.png',
               ),
             ),
           ),
           'media' => array(
             'name' => 'media',
-            'desc' => 'Plugin for inserting images from Drupal media module',
-            'path' => '%plugin_dir%media/',
+            'desc' => 'Plugin for embedding files using Media CKEditor',
+            'path' => '%base_path%sites/all/modules/media_ckeditor/js/plugins/media/',
             'buttons' => array(
               'Media' => array(
-                'label' => 'Media',
-                'icon' => 'images/icon.gif',
+                'icon' => 'icons/media.png',
+                'label' => 'Add media',
               ),
             ),
             'default' => 'f',
           ),
           'mediaembed' => array(
             'name' => 'mediaembed',
-            'desc' => 'Plugin for inserting Drupal embeded media',
+            'desc' => 'Plugin for embedding HTML snippets',
             'path' => '%plugin_dir%mediaembed/',
             'buttons' => array(
               'MediaEmbed' => array(
