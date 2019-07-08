@@ -8,7 +8,6 @@
 /**
  * Implements hook_views_data()
  */
-
 function field_collection_views_views_data() {
 
   // hostEntityId
@@ -40,7 +39,7 @@ function field_collection_views_views_data() {
       'handler' => 'field_collection_views_handler_field_field_path',
     ),
   );
-    $data['field_collection_item']['edit_link'] = array(
+  $data['field_collection_item']['edit_link'] = array(
     'title' => t('Edit Field Collection'),
     'help' => t('Edit Link of the field-collection field.'),
     'field' => array(
@@ -55,13 +54,11 @@ function field_collection_views_views_data() {
     ),
   );
   $data['field_collection_item']['delete_link'] = array(
-    'title' => t('Add Field Collection'),
-    'help' => t('Add Link of the field-collection field.'),
+    'title' => t('Delete Field Collection'),
+    'help' => t('Delete Link of the field-collection field.'),
     'field' => array(
       'handler' => 'field_collection_views_handler_field_delete_link',
     ),
   );
   return $data;
 }
-
-

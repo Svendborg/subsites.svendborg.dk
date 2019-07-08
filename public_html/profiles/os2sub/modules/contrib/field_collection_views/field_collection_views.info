@@ -12,9 +12,9 @@ files[] = views/field_collection_views_handler_field_edit_link.inc
 files[] = views/field_collection_views_handler_field_delete_link.inc
 files[] = views/field_collection_views_handler_area_add_link.inc
 
-; Information added by Drupal.org packaging script on 2015-12-10
-version = "7.x-1.0-beta3+5-dev"
+; Information added by Drupal.org packaging script on 2016-03-21
+version = "7.x-1.0-beta3+6-dev"
 core = "7.x"
 project = "field_collection_views"
-datestamp = "1449752040"
+datestamp = "1458582404"
 
