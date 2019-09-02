@@ -6610,6 +6610,12 @@ body.toolbar-drawer {
 .page-node-edit .panel-body.panel-collapse.fade {
   opacity: 1;
 }
+
+.page-node-add .vertical-tabs-panes .panel-collapse.collapsed,
+.page-node-edit .vertical-tabs-panes  .panel-collapse.collapsed {
+    height: 0;
+    overflow: hidden;
+  }
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
