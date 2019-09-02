@@ -47,7 +47,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     // Get wether this is a top term, and provide a variable for the templates.
     $variables['page']['term_is_top'] = $term_is_top;
   }
-
+;
   $node = NULL;
   if (isset($variables['node']) && !empty($variables['node']->nid)) {
     $node = $variables['node'];
@@ -244,7 +244,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ),
     );
   }
-  if (empty($variables['page']['content_bottom']) && !empty($variables['page']['related_links'])) {
+
+  if (empty($variables['page']['content_bottom']['content']) && !empty($variables['page']['related_links'])) {
     $variables['page']['content_bottom'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'content_bottom',
@@ -252,6 +253,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
         '#markup' => ' ',
       ),
     );
+
     if ($node && ($node->type == "os2web_base_news")) {
       $variables['page']['related_pages_type'] = "boxes";
     }
@@ -477,7 +479,7 @@ function svendborg_subsitetheme_preprocess_node(&$vars) {
   }
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
-  
+
   if ($vars['type'] == 'os2web_base_contentpage' ) {
     if ($vars['view_mode'] == 'full') {
         $vars['sections'] = views_embed_view('os2sub_projektside', array('block_1'));
@@ -991,7 +993,7 @@ function _svendborg_subsitetheme_get_contact($nid) {
   $currrent_node = node_load($nid);
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
     // var_dump($menuParent[$i]["link_path"]);
-    
+
     $node = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
     if (empty($node)) {
       $node = node_load($nid);
