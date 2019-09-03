@@ -65,13 +65,17 @@ function os2web_bootstrap_theme_preprocess_region(&$variables) {
       break;
 
     case 'content';
-      $sidebar_first_elements = element_children($variables['page']['page']['sidebar_first']);
-      $sidebar_second_elements = element_children($variables['page']['page']['sidebar_second']);
+      if (!empty($variables['page']['page']['sidebar_first'])) {
+        $sidebar_first_elements = element_children($variables['page']['page']['sidebar_first']);
+      }
+      if (!empty($variables['page']['page']['sidebar_second'])) {
+        $sidebar_second_elements = element_children($variables['page']['page']['sidebar_second']);
+      }
       // Add information about the number of sidebars.
-      if ($sidebar_first_elements && $sidebar_second_elements) {
+      if (isset($sidebar_first_elements) && isset($sidebar_second_elements)) {
         $attributes['class'][] = bootstrap_setting('content_class_two', $theme, null, 'col-sm-6');
       }
-      elseif ($sidebar_first_elements || $sidebar_second_elements) {
+      elseif (isset($sidebar_first_elements) || isset($sidebar_second_elements)) {
         $attributes['class'][] = bootstrap_setting('content_class', $theme, null, 'col-sm-9');
       }
       else {
