@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * svendborg_calendar.strongarm.inc
