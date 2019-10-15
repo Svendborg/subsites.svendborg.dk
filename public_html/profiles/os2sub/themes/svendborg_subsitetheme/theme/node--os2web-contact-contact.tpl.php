@@ -79,7 +79,6 @@
  * @ingroup themeable
  */
 ?>
-
 <?php if(!$page) : ?>
 
  <div class="panel panel-blacknblue">
@@ -106,7 +105,7 @@
 		        	</a>
 		        </div>
         <?php endif; ?>
-		
+		<?php print render($content['field_afsnit']); ?>
 		<?php
 			if (node_access('update',$node)){
 				print l(t('Edit'),'node/'.$node->nid.'/edit' );

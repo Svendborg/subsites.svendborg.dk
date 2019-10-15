@@ -6610,12 +6610,11 @@ body.toolbar-drawer {
 .page-node-edit .panel-body.panel-collapse.fade {
   opacity: 1;
 }
-
 .page-node-add .vertical-tabs-panes .panel-collapse.collapsed,
-.page-node-edit .vertical-tabs-panes  .panel-collapse.collapsed {
-    height: 0;
-    overflow: hidden;
-  }
+.page-node-edit .vertical-tabs-panes .panel-collapse.collapsed {
+  height: 0;
+  overflow: hidden;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -9640,6 +9639,22 @@ fieldset[disabled] .btn-orange.active {
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
   font-size: 11px;
   font-weight: 700;
+}
+.contact-block .panel-body .field-collection-view-links {
+  background: transparent;
+}
+.contact-block .panel-body .field-collection-view-links li a {
+  color: #fff;
+}
+.contact-block .panel-body .modal-header h3.modal-title {
+  color: #30353c;
+  text-align: left;
+}
+.contact-block .panel-body .modal-body {
+  text-align: left;
+}
+.contact-block .panel-body .modal-body a {
+  color: #30353c;
 }
 .spotbox,
 div.panel-pane div.node.node-os2web-spotbox-box,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_contact.strongarm.inc
@@ -44,16 +45,16 @@ function os2web_contact_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '4',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '2',
         ),
         'workbench_access' => array(
           'weight' => '8',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '3',
         ),
       ),
       'display' => array(),
