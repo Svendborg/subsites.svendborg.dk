@@ -9656,6 +9656,12 @@ fieldset[disabled] .btn-orange.active {
 .contact-block .panel-body .modal-body a {
   color: #30353c;
 }
+.contact-block .panel-body .field-collection-container {
+  border-bottom: none;
+}
+.contact-block .panel-body .field-collection-container ul.field-collection-view-links li {
+  border-bottom: none;
+}
 .spotbox,
 div.panel-pane div.node.node-os2web-spotbox-box,
 div.node-os2web-spotbox-box {
