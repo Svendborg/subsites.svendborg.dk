@@ -1,4 +1,4 @@
-bbb<?php
+<?php
 /**
  * @file
  * Override template for contact nodes.
