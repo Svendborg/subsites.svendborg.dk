@@ -9214,6 +9214,41 @@ fieldset[disabled] .btn-orange:active,
 fieldset[disabled] .btn-orange.active {
   background-color: #dd830f;
 }
+.btn-white {
+  color: #000000;
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  border: none;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active,
+.btn-white.active {
+  background-image: -webkit-linear-gradient(top, #f2f2f2 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #f2f2f2 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2f2f2', endColorstr='#ffffffff', GradientType=0);
+  color: #000000;
+}
+.btn-white.disabled,
+.btn-white[disabled],
+fieldset[disabled] .btn-white,
+.btn-white.disabled:hover,
+.btn-white[disabled]:hover,
+fieldset[disabled] .btn-white:hover,
+.btn-white.disabled:focus,
+.btn-white[disabled]:focus,
+fieldset[disabled] .btn-white:focus,
+.btn-white.disabled:active,
+.btn-white[disabled]:active,
+fieldset[disabled] .btn-white:active,
+.btn-white.disabled.active,
+.btn-white[disabled].active,
+fieldset[disabled] .btn-white.active {
+  background-color: #f2f2f2;
+}
 .panel,
 .like-panel {
   border: 0px solid transparent !important;
@@ -9609,6 +9644,7 @@ fieldset[disabled] .btn-orange.active {
   text-align: center;
   color: #fff;
   padding-top: 15px;
+  margin: 5px;
 }
 .contact-block .panel-body h2 {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;

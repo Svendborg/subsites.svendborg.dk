@@ -22,12 +22,12 @@ $sectionId = str_replace(' ', '_', $title);
     if ($content['field_section_enabled']['#items'][0]['value'] <> 0):
       ?>
       <?php if (!empty($content['field_section_button_url']['#items'][0]['value'])): ?>
-        <a type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-success" href="<?php print($content['field_section_button_url']['#items'][0]['value']) ?>">
+        <a type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-white" href="<?php print($content['field_section_button_url']['#items'][0]['value']) ?>">
           <?php print($content['field_section_button_text']['#items'][0]['value']) ?>
         </a>
       <?php else : ?>
         <!-- Button trigger modal -->
-        <button type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-success" data-toggle="modal" data-target="#<?php print($sectionId); ?>">
+        <button type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-white" data-toggle="modal" data-target="#<?php print($sectionId); ?>">
           <?php print($content['field_section_button_text']['#items'][0]['value']) ?>
         </button>
         <!-- Modal -->

@@ -1,4 +1,4 @@
-<?php
+bbb<?php
 /**
  * @file
  * Override template for contact nodes.
@@ -97,14 +97,7 @@
 
 
 
-        <?php 
-	        if(isset($node->field_os2web_contact_field_email['und'])):?>
-        		<div class="btn-show-all like-panel-lightnblue">
-	        		<a href="mailto:<?php print $node->field_os2web_contact_field_email['und'][0]['value']; ?>">
-		        		<?php print $node->field_os2web_contact_field_email['und'][0]['value']; ?>
-		        	</a>
-		        </div>
-        <?php endif; ?>
+
 		<?php print render($content['field_afsnit']); ?>
 		<?php
 			if (node_access('update',$node)){
