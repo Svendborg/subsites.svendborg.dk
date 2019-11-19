@@ -11,12 +11,14 @@ $button_class = theme_get_setting('contact_block_button', 'svendborg_subsitethem
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
+  <?php if (!empty($content['field_section_heading'])) : ?>
     <h3>
       <?php
       print render($content['field_section_heading']);
       ?>
     </h3>
-    <?php
+ <?php endif; ?>
+  <?php
     print render($content['field_section_text']);
     ?>
     <?php
