@@ -7,6 +7,7 @@
 */
 
 $sectionId = str_replace(' ', '_', $title);
+$button_class = theme_get_setting('contact_block_button', 'svendborg_subsitetheme') ? theme_get_setting('contact_block_button', 'svendborg_subsitetheme') : 'btn-white';
 ?>
 <div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
@@ -22,12 +23,12 @@ $sectionId = str_replace(' ', '_', $title);
     if ($content['field_section_enabled']['#items'][0]['value'] <> 0):
       ?>
       <?php if (!empty($content['field_section_button_url']['#items'][0]['value'])): ?>
-        <a type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-white" href="<?php print($content['field_section_button_url']['#items'][0]['value']) ?>">
+        <a type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn <?php print $button_class ?>" href="<?php print($content['field_section_button_url']['#items'][0]['value']) ?>">
           <?php print($content['field_section_button_text']['#items'][0]['value']) ?>
         </a>
       <?php else : ?>
         <!-- Button trigger modal -->
-        <button type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn btn-white" data-toggle="modal" data-target="#<?php print($sectionId); ?>">
+        <button type="button" title="<?php print render($content['field_section_button_title']['#items'][0]['value']); ?>" class="btn <?php print $button_class ?>" data-toggle="modal" data-target="#<?php print($sectionId); ?>">
           <?php print($content['field_section_button_text']['#items'][0]['value']) ?>
         </button>
         <!-- Modal -->
@@ -35,7 +36,9 @@ $sectionId = str_replace(' ', '_', $title);
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h3 class="modal-title" id="<?php print($sectionId); ?>Label"><?php print($content['field_section_popup_heading']['#items'][0]['value']) ?></h3>
+                <?php if (!empty($content['field_section_popup_heading']['#items'][0]['value'])) : ?>
+                  <h3 class="modal-title" id="<?php print($sectionId); ?>Label"><?php print($content['field_section_popup_heading']['#items'][0]['value']) ?></h3>
+                <?php endif; ?>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
