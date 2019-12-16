@@ -96,7 +96,7 @@ settings[slider_paths] = '<front>'
 
 ; Grid
 ; --------------
-settings[bootstrap_region_grid-sidebar_first] = 2
+;settings[bootstrap_region_grid-sidebar_first] = 2
 
 ; Region Wells
 ; --------------
