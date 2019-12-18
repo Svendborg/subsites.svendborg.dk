@@ -15,6 +15,7 @@ a.is-uk-toggle:before {
   width: 16px;
   height: 16px;
 
+  margin-top: 1px;
   margin-right: 3px;
 
   background-repeat: no-repeat;
