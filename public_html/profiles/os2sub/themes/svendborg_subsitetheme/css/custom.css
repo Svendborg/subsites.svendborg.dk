@@ -4,3 +4,27 @@
 .view-id-os2sub_projektside.view-display-id-block_1 .views-row {
   min-height: 190px;
 }
+
+/* Language toggle icon. */
+a.is-dk-toggle:before,
+a.is-uk-toggle:before {
+  display: inline-block;
+
+  content: "";
+
+  width: 16px;
+  height: 16px;
+
+  margin-right: 3px;
+
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+a.is-dk-toggle:before {
+  background-image: url('../images/denmark.png');
+}
+
+a.is-uk-toggle:before {
+  background-image: url('../images/united-kingdom.png');
+}
