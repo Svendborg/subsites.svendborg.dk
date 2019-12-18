@@ -8,7 +8,7 @@
 /* Language toggle icon. */
 a.is-dk-toggle:before,
 a.is-uk-toggle:before {
-  display: inline-block;
+  float: left;
 
   content: "";
 
