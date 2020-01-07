@@ -306,6 +306,22 @@ $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#default_value' => theme_get_setting('email', 'svendborg_subsitetheme'),
     '#description'   => t("Enter your email. Leave blank to hide."),
   );
+  $form['svendborg_subsitetheme_setting']['contact_block'] = array(
+    '#type'          => 'fieldset',
+    '#title' => 'Contact block',
+    '#group' => 'subsitetheme_settings',
+    '#weight' => -3,
+    '#description' => t('Settings for contact block'),
+  );
+  $form['svendborg_subsitetheme_setting']['contact_block']['contact_block_button'] = array(
+    '#type' => 'select',
+    '#title' => t('Color of button in contact block (background/textcolor)'),
+    '#options' => array(
+         'btn-white' => t('White/black'),
+         'btn-black' =>  t('Black/white')
+       ),
+    '#default_value' => theme_get_setting('contact_block_button', 'svendborg_subsitetheme'),
+  );
 
 $form['#submit'][] = 'svendborg_subsitetheme_settings_form_submit';
 $themes = list_themes();

@@ -6610,12 +6610,11 @@ body.toolbar-drawer {
 .page-node-edit .panel-body.panel-collapse.fade {
   opacity: 1;
 }
-
 .page-node-add .vertical-tabs-panes .panel-collapse.collapsed,
-.page-node-edit .vertical-tabs-panes  .panel-collapse.collapsed {
-    height: 0;
-    overflow: hidden;
-  }
+.page-node-edit .vertical-tabs-panes .panel-collapse.collapsed {
+  height: 0;
+  overflow: hidden;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -9215,6 +9214,76 @@ fieldset[disabled] .btn-orange:active,
 fieldset[disabled] .btn-orange.active {
   background-color: #dd830f;
 }
+.btn-white {
+  color: #000000;
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  border: none;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active,
+.btn-white.active {
+  background-image: -webkit-linear-gradient(top, #f2f2f2 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #f2f2f2 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2f2f2', endColorstr='#ffffffff', GradientType=0);
+  color: #000000;
+}
+.btn-white.disabled,
+.btn-white[disabled],
+fieldset[disabled] .btn-white,
+.btn-white.disabled:hover,
+.btn-white[disabled]:hover,
+fieldset[disabled] .btn-white:hover,
+.btn-white.disabled:focus,
+.btn-white[disabled]:focus,
+fieldset[disabled] .btn-white:focus,
+.btn-white.disabled:active,
+.btn-white[disabled]:active,
+fieldset[disabled] .btn-white:active,
+.btn-white.disabled.active,
+.btn-white[disabled].active,
+fieldset[disabled] .btn-white.active {
+  background-color: #f2f2f2;
+}
+.btn-black {
+  color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #000000 0%, #0d0d0d 100%);
+  background-image: linear-gradient(to bottom, #000000 0%, #0d0d0d 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ff0d0d0d', GradientType=0);
+  border: none;
+}
+.btn-black:hover,
+.btn-black:focus,
+.btn-black:active,
+.btn-black.active {
+  background-image: -webkit-linear-gradient(top, #0d0d0d 0%, #000000 100%);
+  background-image: linear-gradient(to bottom, #0d0d0d 0%, #000000 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0d0d0d', endColorstr='#ff000000', GradientType=0);
+  color: #ffffff;
+}
+.btn-black.disabled,
+.btn-black[disabled],
+fieldset[disabled] .btn-black,
+.btn-black.disabled:hover,
+.btn-black[disabled]:hover,
+fieldset[disabled] .btn-black:hover,
+.btn-black.disabled:focus,
+.btn-black[disabled]:focus,
+fieldset[disabled] .btn-black:focus,
+.btn-black.disabled:active,
+.btn-black[disabled]:active,
+fieldset[disabled] .btn-black:active,
+.btn-black.disabled.active,
+.btn-black[disabled].active,
+fieldset[disabled] .btn-black.active {
+  background-color: #0d0d0d;
+}
 .panel,
 .like-panel {
   border: 0px solid transparent !important;
@@ -9610,6 +9679,7 @@ fieldset[disabled] .btn-orange.active {
   text-align: center;
   color: #fff;
   padding-top: 15px;
+  margin: 5px;
 }
 .contact-block .panel-body h2 {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
@@ -9640,6 +9710,28 @@ fieldset[disabled] .btn-orange.active {
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
   font-size: 11px;
   font-weight: 700;
+}
+.contact-block .panel-body .field-collection-view-links {
+  background: transparent;
+}
+.contact-block .panel-body .field-collection-view-links li a {
+  color: #fff;
+}
+.contact-block .panel-body .modal-header h3.modal-title {
+  color: #30353c;
+  text-align: left;
+}
+.contact-block .panel-body .modal-body {
+  text-align: left;
+}
+.contact-block .panel-body .modal-body a {
+  color: #30353c;
+}
+.contact-block .panel-body .field-collection-container {
+  border-bottom: none;
+}
+.contact-block .panel-body .field-collection-container ul.field-collection-view-links li {
+  border-bottom: none;
 }
 .spotbox,
 div.panel-pane div.node.node-os2web-spotbox-box,
