@@ -49,7 +49,7 @@ $button_class = theme_get_setting('contact_block_button', 'svendborg_subsitethem
                 <?php print render($content['field_section_popup_text']); ?>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal"><?php print t('Close') ?></button>
+                <button type="button" class="btn btn-success" data-dismiss="modal"><?php print t('Luk') ?></button>
               </div>
             </div>
           </div>

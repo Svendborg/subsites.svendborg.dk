@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.features.filter.inc
@@ -16,20 +17,8 @@ function os2sub_uses_and_tools_filter_default_formats() {
     'name' => 'HTML',
     'cache' => 1,
     'status' => 1,
-    'weight' => -10,
+    'weight' => 1,
     'filters' => array(
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-        'settings' => array(
-          'filter_url_length' => 72,
-        ),
-      ),
-      'filter_autop' => array(
-        'weight' => 1,
-        'status' => 1,
-        'settings' => array(),
-      ),
       'media_filter' => array(
         'weight' => 2,
         'status' => 1,
