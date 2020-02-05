@@ -9727,6 +9727,9 @@ fieldset[disabled] .btn-black.active {
 .contact-block .panel-body .modal-body a {
   color: #30353c;
 }
+.contact-block .panel-body .modal-body td {
+  color: #30353c;
+}
 .contact-block .panel-body .field-collection-container {
   border-bottom: none;
 }
