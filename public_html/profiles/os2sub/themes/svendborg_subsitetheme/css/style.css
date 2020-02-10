@@ -9730,6 +9730,10 @@ fieldset[disabled] .btn-black.active {
 .contact-block .panel-body .modal-body td {
   color: #30353c;
 }
+.contact-block .panel-body .modal-body td p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 .contact-block .panel-body .field-collection-container {
   border-bottom: none;
 }
@@ -11665,7 +11669,7 @@ fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li.active {
   margin-bottom: 20px;
   /*display: inline-block;
               float: left;
-              margin-right: 45px;  
+              margin-right: 45px;
               width: 140px;
               height: 140px;
               border-radius: 50%;
@@ -12810,7 +12814,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 07.05.2015, 11:24:22
     Author     : Juulia
 */
@@ -12859,7 +12863,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 07.05.2015, 21:06:44
     Author     : Juulia
 */
