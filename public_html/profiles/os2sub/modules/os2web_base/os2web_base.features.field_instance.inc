@@ -12,6 +12,77 @@ function os2web_base_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
+  // 'field_collection_item-field_os2web_paragraph-field_os2web_base_field_image'.
+  $field_instances['field_collection_item-field_os2web_paragraph-field_os2web_base_field_image'] = array(
+    'bundle' => 'field_os2web_paragraph',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'svendborg_content_image',
+        ),
+        'type' => 'image',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_os2web_base_field_image',
+    'label' => 'Billede',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'epsacrop' => array(
+        'styles' => array(
+          'nyheder_140x140' => 0,
+          'os2sub_220x130' => 0,
+          'os2sub_300x175' => 0,
+          'os2sub_banner' => 0,
+          'os2web_spotbox_image' => 0,
+          'svendborg_content_image' => 'svendborg_content_image',
+          'svendborg_spotbox' => 0,
+        ),
+      ),
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '900x419',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_insert' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 0,
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_os2web_paragraph-field_os2web_paragraph_ref'.
   $field_instances['field_collection_item-field_os2web_paragraph-field_os2web_paragraph_ref'] = array(
     'bundle' => 'field_os2web_paragraph',
@@ -26,7 +97,7 @@ function os2web_base_field_default_field_instances() {
           'node_reference_view_mode' => 'teaser',
         ),
         'type' => 'node_reference_node',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -45,7 +116,7 @@ function os2web_base_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'node_reference_autocomplete',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
