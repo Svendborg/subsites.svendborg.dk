@@ -9641,8 +9641,8 @@ fieldset[disabled] .btn-black.active {
   padding: 0;
 }
 .selfserv-block {
-  float: right;
-  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .selfserv-block .panel-heading {
   height: 46px;
@@ -9672,6 +9672,9 @@ fieldset[disabled] .btn-black.active {
   padding: 0 15px;
   vertical-align: middle;
   color: #333333;
+}
+.contact-block {
+  clear: both;
 }
 .contact-block .panel-body {
   /* #gradient > .vertical(#0086ca, #0079b7, 0%, 50%);*/
