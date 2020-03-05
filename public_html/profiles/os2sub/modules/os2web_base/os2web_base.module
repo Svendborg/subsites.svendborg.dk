@@ -6,6 +6,42 @@
 
 include_once('os2web_base.features.inc');
 
+/*
+ * Implements hook_menu.
+ */
+function os2web_base_menu() {
+  $items['admin/config/os2web'] = array(
+    'title' => 'Os2web Base Setup',
+    'position' => 'right',
+    'weight' => -15,
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/os2web/settings'] = array(
+    'title' => 'Os2web Base Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_base_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/*
+ * Implements hook_settoings_form.
+ */
+function os2web_base_settings_form($form, $form_state) {
+  $form['os2web_base_news_type_field'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Make news type field requiered'),
+    '#description' => t('This decides whether a news type field requiered on news edit/creation form.'),
+    '#default_value' => variable_get('os2web_base_news_type_field', FALSE)
+  );
+  return system_settings_form($form);
+}
 /**
  * Implements hook_date_format_types().
  */
@@ -50,6 +86,12 @@ function os2web_base_form_alter(&$form, &$form_state, $form_id) {
     if ($current_node->type == 'os2web_base_contentpage'
         && $webform_node->webform['redirect_url'] == '<none>') {
       $webform_node->webform['redirect_url'] = current_path();
+    }
+  }
+  if ($form_id == 'os2web_base_news_node_form') {
+    if (!variable_get('os2web_base_news_type_field', FALSE)) {
+      $form['field_os2web_news_page_type']['#required']= FALSE;
+      $form['field_os2web_news_page_type']['#access']= FALSE;
     }
   }
 }
