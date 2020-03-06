@@ -9407,11 +9407,11 @@ fieldset[disabled] .btn-black.active {
 }
 .panel-default > .panel-heading,
 .like-panel.like-panel-default {
-  background-image: -webkit-linear-gradient(top, #2880b9 0%, #2474a8 100%);
-  background-image: linear-gradient(to bottom, #2880b9 0%, #2474a8 100%);
+  background-image: -webkit-linear-gradient(top, #0086ca 0%, #0079b7 100%);
+  background-image: linear-gradient(to bottom, #0086ca 0%, #0079b7 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2880b9', endColorstr='#ff2474a8', GradientType=0);
-}
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
+ }
 .panel-primary > .panel-heading,
 .like-panel.like-panel-primary {
   background-image: -webkit-linear-gradient(top, #85c500 0%, #679800 100%);
