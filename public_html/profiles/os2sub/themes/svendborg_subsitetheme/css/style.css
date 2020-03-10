@@ -9714,11 +9714,16 @@ fieldset[disabled] .btn-black.active {
   font-size: 11px;
   font-weight: 700;
 }
-.contact-block .panel-body .field-collection-view-links {
+.contact-block .panel-body .field-collection-view-links,
+.contact-block .panel-body .action-links-field-collection-add {
   background: transparent;
 }
-.contact-block .panel-body .field-collection-view-links li a {
+.contact-block .panel-body .field-collection-view-links li a,
+.contact-block .panel-body .action-links-field-collection-add li a {
   color: #fff;
+}
+.contact-block .panel-body .action-links-field-collection-add li a {
+  margin-right: 1em;
 }
 .contact-block .panel-body .modal-header h3.modal-title {
   color: #30353c;
@@ -9740,7 +9745,8 @@ fieldset[disabled] .btn-black.active {
 .contact-block .panel-body .field-collection-container {
   border-bottom: none;
 }
-.contact-block .panel-body .field-collection-container ul.field-collection-view-links li {
+.contact-block .panel-body .field-collection-container ul.field-collection-view-links li,
+.contact-block .panel-body .field-collection-container .action-links-field-collection-add li {
   border-bottom: none;
 }
 .spotbox,
