@@ -444,7 +444,7 @@
          padding: 0;
          margin: 0;
     }
-    div.contact-block-tel {
+    div.contact-block-tel, .field-name-field-section-text {
         font-family: @font-familiy-web;
         text-align: justify;
         .field-items {
@@ -469,11 +469,18 @@
 
         }
     }
-    .field-collection-view-links {
+    .field-collection-view-links, .action-links-field-collection-add {
       background: transparent;
       li {
         a {
           color: #fff;
+        }
+      }
+    }
+    .action-links-field-collection-add {
+      li {
+        a {
+          margin-right: 1em;
         }
       }
     }
@@ -496,7 +503,7 @@
     }
     .field-collection-container {
       border-bottom: none;
-      ul.field-collection-view-links {
+      ul.field-collection-view-links, .action-links-field-collection-add {
         li {
           border-bottom: none;
         }
