@@ -12224,6 +12224,10 @@ h2.menu-footer a.Kommunen {
 .page-calendar-slider .slider-cover.multi .title.white {
   color: #fff;
 }
+.view-svendborg-slider .slider-cover.multi .title.white a,
+.page-calendar-slider .slider-cover.multi .title.white a {
+  color: #fff;
+}
 .view-svendborg-slider .slider-cover.multi .title .indicators,
 .page-calendar-slider .slider-cover.multi .title .indicators {
   font-size: 20px;
