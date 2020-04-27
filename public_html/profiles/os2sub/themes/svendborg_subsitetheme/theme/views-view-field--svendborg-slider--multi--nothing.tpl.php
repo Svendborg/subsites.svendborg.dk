@@ -24,6 +24,7 @@
 ?>
 <?php
 $node = node_load($row->nid);
+$whitetext = '';
 $image = array(
   'style_name' => 'os2sub_banner',
   'path'       => $node->field_banner_billede['und'][0]['uri'],
@@ -56,6 +57,9 @@ for ($i = 0; $i < $total_row; $i++) {
     $current_row = $i + 1;
   }
 }
+if ((boolean)$node->field_hvid_tekst['und'][0]['value']) {
+      $whitetext = 'white';
+}
 $indicators = '';
 //adding inactive indicators
 for ($i = 1; $i < $current_row; $i++) {
@@ -73,7 +77,7 @@ $html = '<div class="slider-cover multi" style="' . $background . '">';
 $html .= '<div class="container">';
 $html .= '<div class="row">';
 $html .= '<div class="col-sm-7">';
-$html .= '<div class="title">';
+$html .= '<div class="title ' . $whitetext .'" >';
 if (isset($node->field_banner_vis_paa_sider['und']) && !empty($node->field_banner_vis_paa_sider['und'][0]['nid'])) {
   $html .= '<a href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])) . '">';
   //$html .= '<span class="indicators">';refor
