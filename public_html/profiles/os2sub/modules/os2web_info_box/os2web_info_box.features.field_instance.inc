@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_info_box.features.field_instance.inc
@@ -10,7 +11,7 @@
 function os2web_info_box_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-os2web_info_box-field_os2web_info_box_body'
+  // Exported field_instance: 'node-os2web_info_box-field_os2web_info_box_body'.
   $field_instances['node-os2web_info_box-field_os2web_info_box_body'] = array(
     'bundle' => 'os2web_info_box',
     'default_value' => NULL,
@@ -24,6 +25,13 @@ function os2web_info_box_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 2,
       ),
+      'embed' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
       'spotbox' => array(
         'label' => 'above',
         'settings' => array(),
@@ -31,10 +39,11 @@ function os2web_info_box_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -96,7 +105,8 @@ function os2web_info_box_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-os2web_info_box-field_os2web_info_box_heading'
+  // Exported field_instance:
+  // 'node-os2web_info_box-field_os2web_info_box_heading'.
   $field_instances['node-os2web_info_box-field_os2web_info_box_heading'] = array(
     'bundle' => 'os2web_info_box',
     'default_value' => NULL,
@@ -110,6 +120,13 @@ function os2web_info_box_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 1,
       ),
+      'embed' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'spotbox' => array(
         'label' => 'above',
         'settings' => array(),
@@ -117,9 +134,10 @@ function os2web_info_box_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 0,
       ),
     ),

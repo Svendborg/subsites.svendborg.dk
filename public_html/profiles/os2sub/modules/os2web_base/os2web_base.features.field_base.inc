@@ -865,7 +865,7 @@ function os2web_base_field_default_field_bases() {
         'os2web_base_news' => 0,
         'os2web_base_selfservice_link' => 0,
         'os2web_contact_contact' => 0,
-        'os2web_info_box' => 0,
+        'os2web_info_box' => 'os2web_info_box',
         'os2web_spotbox_box' => 0,
         'velkomst' => 0,
         'webform' => 'webform',
