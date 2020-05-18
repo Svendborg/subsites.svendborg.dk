@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_info_box.features.inc

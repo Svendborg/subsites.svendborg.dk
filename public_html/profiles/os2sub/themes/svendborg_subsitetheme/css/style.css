@@ -11286,6 +11286,12 @@ div.node-os2web-base-news .wrap {
   padding: 0 20px !important;
   margin-top: 0;
 }
+div.node-os2web-info-box .field-name-field-os2web-info-box-heading {
+  color: #cccccc;
+  font: 1.46em 'Open Sans', Geneva, Verdana, sans-serif;
+  line-height: 1.1;
+  padding: 10px 0;
+}
 div.node-os2web-base-contentpage .field-date,
 div.node-os2web-base-news .field-date {
   padding: 0 20px !important;

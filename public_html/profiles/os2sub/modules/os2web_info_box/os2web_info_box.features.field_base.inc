@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2web_info_box.features.field_base.inc
@@ -10,7 +11,7 @@
 function os2web_info_box_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_os2web_info_box_body'
+  // Exported field_base: 'field_os2web_info_box_body'.
   $field_bases['field_os2web_info_box_body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -29,7 +30,7 @@ function os2web_info_box_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_os2web_info_box_heading'
+  // Exported field_base: 'field_os2web_info_box_heading'.
   $field_bases['field_os2web_info_box_heading'] = array(
     'active' => 1,
     'cardinality' => 1,
