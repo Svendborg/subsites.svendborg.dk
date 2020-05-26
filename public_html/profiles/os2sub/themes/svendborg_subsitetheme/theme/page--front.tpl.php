@@ -4,25 +4,25 @@
 
 <div class='front-main-container-wrapper'>
   <div class='main-container container'>
-    <?php 
-      print render($page['header']); 
+    <?php
+      print render($page['header']);
 
       if(module_exists(os2web_spotbox)) {
             if (theme_get_setting('spotbox','svendborg_subsitetheme')) :
             ?>
               <div class="spotboxes row">
-                <?php 
+                <?php
                   $view = views_get_view('os2web_frontpage_spotboxes');
                   print $view->render('block');
                 ?>
               </div>
             <?php endif;
-          } ?>      
+          } ?>
 
-    <div class='row'>
+    <div class='row' id="main-content">
       <!-- page--front.tpl.php-->
-      <div class="col-sm-8  col-xs-12">          
-          
+      <div class="col-sm-8  col-xs-12">
+
         <?php if (theme_get_setting('welcome','svendborg_subsitetheme')) :?>
       <div class="welcome-text">
         <?php //$block_search_form = module_invoke('search', 'block_view', 'search'); ?>
@@ -44,17 +44,17 @@
       <?php endif;?>
       <?php if (theme_get_setting('latest_news','svendborg_subsitetheme')== 2) :?>
       <div class="latest-news-block">
-        <?php 
-        
+        <?php
+
       $view = views_get_view('svendborg_news_view');
       $view->set_display('svendborg_latest_news');
       $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
       $view->pre_execute();
       $view->execute();
       //var_dump(views_get_view_result('svendborg_news_view', 'svendborg_latest_news'));
-      if (count( $view->result)>0) 
+      if (count( $view->result)>0)
        print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
-              
+
         ?>
       </div>
      <?php endif;?>
@@ -62,11 +62,11 @@
       <div class="region region-sidebar-second col-sm-4 col-xs-12">
           <?php if (theme_get_setting('promoted_nodes','svendborg_subsitetheme') ):?>
        <div class="frontpage-nodes-block <?php (theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider')?  print 'hidden-sm hidden-md hidden-lg' : print ''?>">
-     
+
         <?php print _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block'); ?>
       </div>
       <?php endif;?>
-     
+
           <?php if (theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
 
             <div style="width: 100%">
@@ -78,61 +78,61 @@
                   js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.5&appId=198415943519297";
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>
-                
-                
-                <div class="fb-page" style="margin-bottom: 20px;" 
+
+
+                <div class="fb-page" style="margin-bottom: 20px;"
                   <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
-                    
+
                     data-href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>"
-                    
+
                     <?php else : ?>
-                    data-href="https://www.facebook.com/Svendborg" 
+                    data-href="https://www.facebook.com/Svendborg"
                     <?php endif; ?>
-                    
-                  data-tabs="timeline,events" 
-                  data-small-header="true" 
-                  data-width="400" 
-                  data-adapt-container-width="true" 
+
+                  data-tabs="timeline,events"
+                  data-small-header="true"
+                  data-width="400"
+                  data-adapt-container-width="true"
                   data-hide-cover="false"
                   data-show-facepile="false">
                     <div class="fb-xfbml-parse-ignore">
-                      
+
                       <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
 
                       <blockquote cite="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
                         <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
-                          
+
                           <?php if (theme_get_setting('company-name', 'svendborg_subsitetheme')):?>
                               <?php print theme_get_setting('company-name', 'svendborg_subsitetheme') ?>
-                          <?php else: 
+                          <?php else:
                               print $site_name;
                           endif; ?>
                           </a>
-                        
+
                       <?php else : ?>
                       <blockquote cite="https://www.facebook.com/Svendborg">
                         <a href="https://www.facebook.com/Svendborg">Svendborg Kommune</a>
-                      
+
                       <?php endif; ?>
-                        
+
                       </blockquote>
                     </div>
                 </div>
               </div>
-     
+
           <?php endif;?>
-          
+
           <?php if (!theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
-        
+
              <?php if (theme_get_setting('activites','svendborg_subsitetheme')) :?>
               <div class="activites-block">
                   <?php  print _svendborg_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
               </div>
              <?php endif;?>
-          
-          <?php endif;?>   
+
+          <?php endif;?>
       </div>
-      
+
       <div class="clearfix"></div>
       <?php if (theme_get_setting('large_news','svendborg_subsitetheme')==3) :?>
       <div class="news-block col-xs-12">
@@ -144,24 +144,24 @@
         ?>
       </div>
      <?php endif;?>
-      
+
       <div class="clearfix"></div>
-      
+
       <?php if (theme_get_setting('large_news','svendborg_subsitetheme')==4) :?>
       <div class="news-block col-xs-12">
         <?php if (theme_get_setting('newstext','svendborg_subsitetheme')) :?>
             <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
         <?php endif;?>
         <?php $view = views_get_view('svendborg_news_view');
-        
+
               print $view->render('block_7');
         ?>
       </div>
      <?php endif;?>
-      <?php if (theme_get_setting('latest_news','svendborg_subsitetheme')== 3) :?>      
+      <?php if (theme_get_setting('latest_news','svendborg_subsitetheme')== 3) :?>
       <div class="col-xs-12 latest-news-block with-top-line">
-        
-        <?php 
+
+        <?php
          $view = views_get_view('svendborg_news_view');
       $view->set_display('svendborg_latest_news_three_col');
       $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
@@ -169,23 +169,23 @@
       $view->execute();
       if (count( $view->result)>0)
 
-      if (theme_get_setting('newstext','svendborg_subsitetheme')) :      
+      if (theme_get_setting('newstext','svendborg_subsitetheme')) :
 
             print '<h2 class="newstitle block-title">' . theme_get_setting('newstext', 'svendborg_subsitetheme')  . '</h2>' . $view->render();
 
-        else: 
-                  
+        else:
+
             print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
-        
+
         endif;
-      
-      
+
+
         ?>
       </div>
      <?php endif;?>
     </div>
     <div class="clearfix"></div>
-    
+
   </div>
 
   <!--<div class='front-main-container-shadow'></div> -->
@@ -207,6 +207,6 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
 -->
 <?php print render($page['footer']); ?>

@@ -102,7 +102,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="row">
+  <div class="row" id="main-content">
 
       <?php /* region--sidebar.tpl.php */ ?>
       <?php if ($page['sidebar_first']): ?>
@@ -118,14 +118,14 @@
       <?php endif; ?>
 
   </div>
- </div>   
+ </div>
   <?php if ($page['content_bottom']): ?>
       <?php /* region--content_bottom.tpl.php */ ?>
         <?php print render($page['content_bottom']); ?>
 
   <?php endif; ?>
 
- 
+
   </div>
 </div>
 <?php /* region--footer.tpl.php */ ?>

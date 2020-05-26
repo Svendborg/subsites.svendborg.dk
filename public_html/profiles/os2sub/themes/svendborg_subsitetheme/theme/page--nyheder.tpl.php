@@ -78,11 +78,11 @@
     <?php print render($page['navigation']); ?>
 <?php endif; ?>
 
-<div class="main-container container"> 
+<div class="main-container container" id="main-content">
 <div class='row'>
 
         <?php /* region--content.tpl.php */ ?>
-        <?php print render($page['content']); 
+        <?php print render($page['content']);
         $page['page']['prev_news_block'] = TRUE;?>
 
         <?php /* region--sidebar.tpl.php */ ?>
@@ -90,9 +90,9 @@
             <?php print render($page['sidebar_second']); ?>
         <?php endif; ?>
 
-   
- </div>       
+
+ </div>
 </div>
-    
+
 <?php /* region--footer.tpl.php */ ?>
 <?php print render($page['footer']); ?>

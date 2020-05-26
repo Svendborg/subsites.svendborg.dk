@@ -29,7 +29,6 @@
   <div<?php print $attributes; ?>>
     <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
     <?php print render($page['page']['highlighted']); ?>
-    <a id="main-content"></a>
     <?php print render($page['title_prefix']); ?>
 
     <?php if (!empty($page['title']) && !isset($page['page']['term_is_top'])): ?>
