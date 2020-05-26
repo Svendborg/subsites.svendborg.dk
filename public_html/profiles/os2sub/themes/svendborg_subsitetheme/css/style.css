@@ -2254,7 +2254,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger {
   color: #ffffff;
   background-color: #d9534f;
-  border-color: #d43f3a;
+  border-color: #f2f2f2;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -2263,7 +2263,7 @@ fieldset[disabled] .btn-warning.active {
 .open .dropdown-toggle.btn-danger {
   color: #ffffff;
   background-color: #d2322d;
-  border-color: #ac2925;
+  border-color: #d4d4d4;
 }
 .btn-danger:active,
 .btn-danger.active,
@@ -2286,7 +2286,7 @@ fieldset[disabled] .btn-danger:active,
 .btn-danger[disabled].active,
 fieldset[disabled] .btn-danger.active {
   background-color: #d9534f;
-  border-color: #d43f3a;
+  border-color: #f2f2f2;
 }
 .btn-danger .badge {
   color: #d9534f;
@@ -6615,6 +6615,10 @@ body.toolbar-drawer {
   height: 0;
   overflow: hidden;
 }
+a:focus {
+  outline: 4px solid #85c500;
+  outline-offset: 1px;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -9411,7 +9415,7 @@ fieldset[disabled] .btn-black.active {
   background-image: linear-gradient(to bottom, #0086ca 0%, #0079b7 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
- }
+}
 .panel-primary > .panel-heading,
 .like-panel.like-panel-primary {
   background-image: -webkit-linear-gradient(top, #85c500 0%, #679800 100%);
@@ -9690,11 +9694,13 @@ fieldset[disabled] .btn-black.active {
   padding: 0;
   margin: 0;
 }
-.contact-block .panel-body div.contact-block-tel {
+.contact-block .panel-body div.contact-block-tel,
+.contact-block .panel-body .field-name-field-section-text {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
   text-align: justify;
 }
-.contact-block .panel-body div.contact-block-tel .field-items {
+.contact-block .panel-body div.contact-block-tel .field-items,
+.contact-block .panel-body .field-name-field-section-text .field-items {
   padding: 10px;
 }
 .contact-block .panel-body a {
@@ -11281,16 +11287,16 @@ body.page-node article #borger_dk-body .microArticle ul {
   float: right;
   padding-right: 16px;
 }
-div.node-os2web-base-contentpage .wrap,
-div.node-os2web-base-news .wrap {
-  padding: 0 20px !important;
-  margin-top: 0;
-}
 div.node-os2web-info-box .field-name-field-os2web-info-box-heading {
   color: #cccccc;
   font: 1.46em 'Open Sans', Geneva, Verdana, sans-serif;
   line-height: 1.1;
   padding: 10px 0;
+}
+div.node-os2web-base-contentpage .wrap,
+div.node-os2web-base-news .wrap {
+  padding: 0 20px !important;
+  margin-top: 0;
 }
 div.node-os2web-base-contentpage .field-date,
 div.node-os2web-base-news .field-date {
@@ -11684,7 +11690,7 @@ fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li.active {
   margin-bottom: 20px;
   /*display: inline-block;
               float: left;
-              margin-right: 45px;
+              margin-right: 45px;  
               width: 140px;
               height: 140px;
               border-radius: 50%;
@@ -12230,12 +12236,12 @@ h2.menu-footer a.Kommunen {
 .page-calendar-slider .slider-cover.multi .title.white {
   color: #fff;
 }
-.view-svendborg-slider .slider-cover.multi .title.white a,
-.page-calendar-slider .slider-cover.multi .title.white a {
+.view-svendborg-slider .slider-cover.multi .title.white:before,
+.page-calendar-slider .slider-cover.multi .title.white:before {
   color: #fff;
 }
-.view-svendborg-slider .slider-cover.multi .title.white a:before,
-.page-calendar-slider .slider-cover.multi .title.white a:before {
+.view-svendborg-slider .slider-cover.multi .title.white a,
+.page-calendar-slider .slider-cover.multi .title.white a {
   color: #fff;
 }
 .view-svendborg-slider .slider-cover.multi .title .indicators,
@@ -12840,7 +12846,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/*
+/* 
     Created on : 07.05.2015, 11:24:22
     Author     : Juulia
 */
@@ -12889,7 +12895,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/*
+/* 
     Created on : 07.05.2015, 21:06:44
     Author     : Juulia
 */
