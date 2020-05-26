@@ -1218,7 +1218,7 @@ function menu_navigation_tree($menu_name, $level = 0) {
  *
  * @ingroup themeable
  */
-function theme_file_icon($variables) {
+function svendborg_subsitetheme_file_icon($variables) {
   $file = $variables['file'];
   $icon_directory = $variables['icon_directory'];
 
