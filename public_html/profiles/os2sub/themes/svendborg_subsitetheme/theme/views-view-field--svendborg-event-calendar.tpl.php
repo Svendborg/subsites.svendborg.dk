@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,9 +12,9 @@ $public_filename = image_style_url($style, $node->field_event_calendar_image['un
 global $language ;
 
 }
-                
+
 ?>
-    
+
 <div id="event<?php print $node->nid?>" class="views-row row">
 
    <div class="col-sm-3 col-xs-12  ">
@@ -27,27 +27,27 @@ global $language ;
     <div class="col-sm-9 col-xs-12 ">
         <div class="event-content">
             <div class="short-aktivity row">
-                <div class="col-sm-9 col-xs-12 title"><?php print $node->title?></div> 
-                <div class="col-sm-3 col-xs-12 open-link"><a class='open-activity' href="/" ><?php print t('Show more')?></a></div> 
+                <div class="col-sm-9 col-xs-12 title"><?php print $node->title?></div>
+                <div class="col-sm-3 col-xs-12 open-link"><a class='open-activity' href="/" ><?php print t('Show more')?></a></div>
             </div>
         <div class="full-aktivity">
             <div class="event-description row">
                 <?php if(isset($public_filename)):?>
-                    <div class="col-sm-3 col-xs-12 image"><img src="<?php print  $public_filename?>"></div> 
-                    <div class="col-sm-9 col-xs-12"><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div> 
+                    <div class="col-sm-3 col-xs-12 image"><img alt="<?php print $node->title?>" src="<?php print  $public_filename?>"></div>
+                    <div class="col-sm-9 col-xs-12"><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div>
                 <?php else:?>
-                    <div class="col-xs-12 "><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div> 
+                    <div class="col-xs-12 "><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div>
                 <?php endif;?>
-            </div> 
+            </div>
             <div class="event-contact row">
-	            
+
 	             <?php if(isset($node->field_event_calendar_field_org['und'])):?>
 	                <div class="col-sm-3 col-xs-12">
                     <label> <?php print t('Address');?></label>
                     <div><?php print $node->field_event_calendar_field_org['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_addr['und'][0]['value']?></div>
-                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?> 
-                    	<?php print $node->field_event_calendar_by['und'][0]['value']?></div>  
+                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?>
+                    	<?php print $node->field_event_calendar_by['und'][0]['value']?></div>
                   </div>
                   <?php endif; ?>
 
@@ -61,8 +61,8 @@ global $language ;
                    <?php endif; ?>
                   </div>
                   <?php endif; ?>
-                  
-                  
+
+
                   <div class="col-sm-3 col-xs-12 col-sm-offset-1">
                      <?php if ($node->registration->status == 1):?>
                      <a class="btn-back gradient-lightgreen btn-book-place" href="#" data-node-id="<?php print $node->nid; ?>"><?php print t('Book your place'); ?></a>
@@ -82,16 +82,16 @@ global $language ;
                            $form['account']['#suffix']= '</div>';
                            $form['slots']['#prefix']= '<div class="hidden">';
                            $form['slots']['#suffix']= '</div>';
-   
+
                            $form['actions']['submit']['#attributes']['class'][] = "gradient-lightgreen";
                            $form['#action'] .= '?destination=kalender/kommende#event' . $node->nid;
                            unset($form['actions']['return']);
                            print drupal_render($form);
                         }
                      ?>
-                  </div>  
+                  </div>
             </div>
-       </div>      
+       </div>
       </div>
     </div>
 </div>
