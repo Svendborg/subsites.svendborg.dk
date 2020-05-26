@@ -6619,6 +6619,10 @@ a:focus {
   outline: 4px solid #85c500;
   outline-offset: 1px;
 }
+.field-name-field-section-popup-text a {
+  text-decoration: underline;
+  color: #85c500;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
