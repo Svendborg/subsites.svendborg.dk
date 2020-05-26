@@ -27,22 +27,24 @@
  */
 ?>
   <footer class="region region_footer lcontainer-fluid">
-    <div 
-        class="lcontainer-fluid clearfix <?php if (theme_get_setting('hide_footer_branding', 'svendborg_subsitetheme')):?>no-branding <?php endif;?>"  
+    <div
+        class="lcontainer-fluid clearfix <?php if (theme_get_setting('hide_footer_branding', 'svendborg_subsitetheme')):?>no-branding <?php endif;?>"
         id="footer-first-block">
 
       <div class="container footer-first-block">
         <div class="row-no-padding">
             <div class='footer-logo col-sm-2 col-xs-12'>
               <?php if (!theme_get_setting('hide_footer_logo', 'svendborg_subsitetheme')):?>
-                <img id="footer-logo" class="logo-img" 
-                  src="/<?php print drupal_get_path('theme','svendborg_subsitetheme'); ?>/images/footer_logo.png" 
-                  title="<?php print $page['site_name'] ?>" />
-              <?php endif;?> 
+                <img id="footer-logo" class="logo-img"
+                  src="/<?php print drupal_get_path('theme','svendborg_subsitetheme'); ?>/images/footer_logo.png"
+                  title="<?php print $page['site_name'] ?>"
+                  alt="Logo for <?php print $page['site_name'] ?>"
+                />
+              <?php endif;?>
           </div>
           <div class="col-sm-10 col-sx-12">
             <?php print $page['footer_blocks']['block_1']; ?>
-          </div>    
+          </div>
 
 
 
