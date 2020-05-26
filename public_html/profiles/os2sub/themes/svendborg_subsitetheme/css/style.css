@@ -9398,6 +9398,10 @@ fieldset[disabled] .btn-black.active {
   padding: 0;
   margin: 0;
 }
+.info-box .panel .panel-body a {
+  color: #fff;
+  outline-color: #fff;
+}
 .info-box .panel .panel-body ul {
   background: none;
 }
