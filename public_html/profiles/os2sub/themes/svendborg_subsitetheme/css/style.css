@@ -11846,7 +11846,7 @@ h2.menu-footer a.Kommunen {
 }
 .footer-contacts .footer-copyright {
   margin-top: 10px;
-  color: #4b525d;
+  color: #aaa;
 }
 @media all and (max-width: 1200px) and (min-width: 970px) {
   .footer-contacts .container {
