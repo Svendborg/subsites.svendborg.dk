@@ -12903,7 +12903,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 07.05.2015, 21:06:44
     Author     : Juulia
 */
@@ -12971,7 +12971,6 @@ and open the template in the editor.
 }
 .page-kalender .view-svendborg-event-calendar .views-row .time {
   font-size: 18px;
-  color: #4c6f02;
   display: block;
   line-height: 20px;
 }
