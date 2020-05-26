@@ -150,6 +150,12 @@
         background: @brand-lightgreen;
         > a {
           background: none;
+
+          &:focus {
+            outline: 4px solid @brand-lightgreen;
+            outline-offset: 1px;
+          }
+
           @media (max-width: 767px) {
             background: @brand-lightgreen;
         }
