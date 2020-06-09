@@ -13032,3 +13032,13 @@ and open the template in the editor.
 .page-kalender .view-svendborg-event-calendar .block-book-place {
   margin-top: 20px;
 }
+@media (max-width: 460px) {
+  table.table--small-font-on-mobile {
+    font-size: 10px;
+  }
+  table.table--small-font-on-mobile tr,
+  table.table--small-font-on-mobile th,
+  table.table--small-font-on-mobile td {
+    font-size: 10px;
+  }
+}
