@@ -53,8 +53,11 @@
       border-right: #fff 1px solid;
       line-height: 15px;
       a {
-          padding: 0;
+        padding: 0;
 
+        &, &:hover, &:active, &:visited, &:focus {
+          background-color: unset !important;
+        }
       }
       }
       li.first {
@@ -201,11 +204,6 @@
         padding-left: 15px;
         padding-right: 15px;
         background: none;
-        &:hover, &.active {
-          color: @brand-lightgreen;
-          border-bottom: none;
-
-        }
       }
     }
     &.search a{
@@ -285,6 +283,26 @@
         & .nav_main_menu{
           display: flex;
           justify-content: flex-end;
+        }
+      }
+    }
+
+    .dropdown {
+
+      > a {
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &.open {
+
+        a {
+
+          &, &:hover, &:focus, &:visited {
+            color: #fff;
+          }
         }
       }
     }

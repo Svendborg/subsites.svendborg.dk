@@ -6615,6 +6615,9 @@ body.toolbar-drawer {
   height: 0;
   overflow: hidden;
 }
+a:not(.btn) {
+  text-decoration: underline;
+}
 a:focus {
   outline: 4px solid #85c500;
   outline-offset: 1px;
@@ -10022,6 +10025,13 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
 #top_menu #block-menu-menu-top-right ul.menu li a {
   padding: 0;
 }
+#top_menu #block-menu-menu-top-right ul.menu li a,
+#top_menu #block-menu-menu-top-right ul.menu li a:hover,
+#top_menu #block-menu-menu-top-right ul.menu li a:active,
+#top_menu #block-menu-menu-top-right ul.menu li a:visited,
+#top_menu #block-menu-menu-top-right ul.menu li a:focus {
+  background-color: unset !important;
+}
 #top_menu #block-menu-menu-top-right ul.menu li.first a {
   background: url('../images/login_icon.png') 0px 2px no-repeat;
   padding-left: 20px;
@@ -10103,6 +10113,10 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   color: #FFFFFF;
   border-bottom: 4px solid #85c500;
 }
+.header_fixed .navbar-nav > li.expanded.open > a:focus {
+  outline: 4px solid #85c500;
+  outline-offset: 1px;
+}
 @media (max-width: 767px) {
   .header_fixed .navbar-nav > li.expanded.open > a {
     background: #85c500;
@@ -10114,6 +10128,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   font-weight: bold;
   padding: 0px 0px 9px 0px;
   text-transform: uppercase;
+  text-decoration: none;
   font-family: 'Open Sans Semibold', Geneva, Verdana, sans-serif;
 }
 .header_fixed .navbar-nav > li > a.active,
@@ -10151,11 +10166,6 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   padding-left: 15px;
   padding-right: 15px;
   background: none;
-}
-.header_fixed .navbar-nav > li .dropdown-menu a:hover,
-.header_fixed .navbar-nav > li .dropdown-menu a.active {
-  color: #85c500;
-  border-bottom: none;
 }
 .header_fixed .navbar-nav > li.search a:before {
   content: "\e003";
@@ -10219,6 +10229,15 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
     display: flex;
     justify-content: flex-end;
   }
+}
+.header_fixed .header_main_menu .dropdown > a:focus {
+  outline: none;
+}
+.header_fixed .header_main_menu .dropdown.open a,
+.header_fixed .header_main_menu .dropdown.open a:hover,
+.header_fixed .header_main_menu .dropdown.open a:focus,
+.header_fixed .header_main_menu .dropdown.open a:visited {
+  color: #fff;
 }
 @media (min-width: 768px) {
   .header_fixed .navbar-nav {
@@ -11172,13 +11191,13 @@ body.page-taxonomy-term.term-is-not-top .region-content.col-md-6 div.node-os2web
 .region-content .taxonomy-term-description a,
 .region-content .field-name-body a {
   font-weight: 400;
-  color: #2880b9;
+  color: #85c500;
 }
 .region-content .taxonomy-term-description a:hover,
 .region-content .field-name-body a:hover,
 .region-content .taxonomy-term-description a:active,
 .region-content .field-name-body a:active {
-  color: #2474a8;
+  color: #85c500;
 }
 .wrap img {
   max-width: 100%;
@@ -11938,13 +11957,19 @@ h2.menu-footer a.Kommunen {
   padding-bottom: 15px;
 }
 #footer-tilmeld-block .footer-tilmeld-block a.tilmeld-btn {
-  color: #fff;
   display: inline-block;
   margin-left: 70px;
   border: #fff 2px solid;
   padding: 5px 35px;
   font-size: 11px;
   text-transform: uppercase;
+}
+#footer-tilmeld-block .footer-tilmeld-block a,
+#footer-tilmeld-block .footer-tilmeld-block a:active,
+#footer-tilmeld-block .footer-tilmeld-block a:hover,
+#footer-tilmeld-block .footer-tilmeld-block a:focus,
+#footer-tilmeld-block .footer-tilmeld-block a:visited {
+  color: #fff;
 }
 .social-icons a {
   background-repeat: no-repeat;
@@ -12993,6 +13018,7 @@ and open the template in the editor.
 }
 .page-kalender .view-svendborg-event-calendar .event-content .short-aktivity .open-link a {
   width: 100%;
+  text-decoration: none;
   text-align: center;
 }
 .page-kalender .view-svendborg-event-calendar .event-content .full-aktivity {
