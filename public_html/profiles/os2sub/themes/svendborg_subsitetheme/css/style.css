@@ -10129,7 +10129,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   font-weight: bold;
   padding: 0px 0px 9px 0px;
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: none !important;
   font-family: 'Open Sans Semibold', Geneva, Verdana, sans-serif;
 }
 .header_fixed .navbar-nav > li > a.active,
