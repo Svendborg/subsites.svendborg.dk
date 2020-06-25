@@ -6615,7 +6615,7 @@ body.toolbar-drawer {
   height: 0;
   overflow: hidden;
 }
-a:not(.btn) {
+a:hover {
   text-decoration: underline;
 }
 a:focus {
