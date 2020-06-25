@@ -11877,6 +11877,7 @@ h2.menu-footer a.Kommunen {
 .footer-contacts .footer-address a {
   font-size: 14px;
   color: #fff;
+  text-decoration: underline;
 }
 .footer-contacts .footer-copyright {
   margin-top: 10px;
