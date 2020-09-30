@@ -43,7 +43,7 @@
               <?php endif;?>
           </div>
           <div class="col-sm-10 col-sx-12">
-            <?php print $page['footer_blocks']['block_1']; ?>
+            <?php print check_markup($page['footer_blocks']['block_1'], 'full_html'); ?>
           </div>
 
 
@@ -55,7 +55,7 @@
     <div class="lcontainer-fluid clearfix"  id="footer-tilmeld-block">
       <div class="container footer-tilmeld-block">
         <div class="row">
-          <?php print $page['footer_blocks']['block_2']; ?>
+          <?php print check_markup($page['footer_blocks']['block_2'], 'full_html'); ?>
          </div>
       </div>  
     </div>    
