@@ -6627,6 +6627,10 @@ a:focus {
   text-decoration: underline;
   color: #85c500;
 }
+.footer-first-block .content img.img-responsive,
+.footer-tilmeld-block .content img.img-responsive {
+  display: initial;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
