@@ -5661,9 +5661,6 @@ function os2web_base_field_default_field_instances() {
   t('Opmærk dit indhold med KLs Emneord.
 <br>Se fuld oversigt på <a target="_blank" href="http://www.kle-online.dk">KLE-Online</a>.
 <br>Adskil flere opmærkninger med komma.');
-  t('Opmærk dit indhold med KLs Emneord.
-<br>Se fuld oversigt på <a target="_blank" href="http://www.kle-online.dk">KLE-Online</a>.
-<br>Adskil flere opmærkninger med komma.');
   t('Opmærk dit indhold med dine egne stikord.
 <br>Dette giver mulighed for at sammenkoble relateret indhold i listevisninger mv.
 <br>Adskil flere opmærkninger med komma.');
