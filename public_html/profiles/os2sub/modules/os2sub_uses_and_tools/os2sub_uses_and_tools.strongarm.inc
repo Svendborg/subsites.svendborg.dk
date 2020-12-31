@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.strongarm.inc
@@ -64,35 +65,61 @@ function os2sub_uses_and_tools_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'eu_cookie_compliance';
   $strongarm->value = array(
-    'popup_enabled' => 1,
-    'method' => 'default',
-    'disabled_javascripts' => '',
-    'whitelisted_cookies' => '',
-    'consent_storage_method' => NULL,
-    'popup_clicking_confirmation' => 0,
+    'save_preferences_button_label' => 'Gem indstillinger',
+    'accept_all_categories_button_label' => 'Accepter alle',
+    'only_required_button_label' => 'Kun nødvendige',
+    'popup_disagree_button_message' => 'Jeg ønsker at vide mere om cookiepolitikken',
+    'withdraw_tab_button_label' => 'Indstillinger for privatliv',
+    'method' => 'categories',
+    'automatic_cookies_removal' => 1,
+    'withdraw_enabled' => 1,
+    'withdraw_button_on_info_popup' => 1,
+    'popup_text_hex' => '000000',
+    'popup_bg_hex' => 'FFFFFF',
+    'popup_link' => 'https://www.svendborg.dk/kommunen/presse-og-information/om-svendborgdk',
+    'popup_position' => 'popup',
+    'popup_width' => '700',
     'popup_info' => array(
-      'value' => '<p><strong>Vi bruger cookies.</strong><br />
-Nogle sikrer at hjemmesiden&nbsp;virker, andre samler statistik ind til forbedring af din brugeroplevelse.<br />
-Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
-',
+      'value' => '<h2>Du bestemmer over dine data</h2>
+<p>Vi og vores samarbejdspartnere bruger cookies, til at indsamle oplysninger om
+ dig til at understøtte forskellige funktioner på hjemmesiden, herunder:</p>
+<ol dir="ltr">
+  <li>Funktionalitet</li>
+  <li>Markedsføring</li>
+  <li>Statistik</li>
+</ol>
+<p>Ved at trykke på "Accepter alle" giver du samtykke til alle de formål i
+ ovenstående liste. Du kan også vælge at specificere hvilke typer cookies du vil
+  give samtykke til, ved at benytte markeringsfelterne ud for formålet og
+   efterfølgende trykke på "Gem indstillinger".</p>
+<p>Du kan altid trække dit samtykke tilbage ved at trykke på "Indstillinger for
+privatliv".<br />
+Du kan desuden læse mere om vores brug af cookies og andre teknologier, samt 
+læse vores erklæring om indsamling og behandling af personoplysninger ved at 
+klikke på linket herunder.</p>',
       'format' => 'full_html',
     ),
+    'popup_enabled' => 1,
+    'info_template' => 'new',
+    'enable_save_preferences_button' => 1,
+    'disabled_javascripts' => '',
+    'allowed_cookies' => '',
+    'allowed_cookies_enriched' => '',
+    'consent_storage_method' => 'do_not_store',
+    'popup_clicking_confirmation' => FALSE,
     'use_mobile_message' => 0,
     'mobile_popup_info' => array(
       'value' => '',
-      'format' => 'full_html',
+      'format' => 'plain_text',
     ),
     'mobile_breakpoint' => '768',
     'popup_agree_button_message' => 'Ja, jeg accepterer',
-    'show_disagree_button' => 1,
-    'popup_disagree_button_message' => 'Læs mere om cookies',
+    'show_disagree_button' => TRUE,
     'disagree_button_label' => 'Jeg accepterer ikke',
-    'withdraw_enabled' => 0,
     'withdraw_message' => array(
       'value' => '',
-      'format' => 'full_html',
+      'format' => 'plain_text',
     ),
-    'withdraw_tab_button_label' => '',
     'withdraw_action_button_label' => '',
     'popup_agreed_enabled' => 0,
     'popup_hide_agreed' => 0,
@@ -102,19 +129,20 @@ Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
     ),
     'popup_find_more_button_message' => 'More info',
     'popup_hide_button_message' => 'Skjul',
-    'popup_link' => 'node/13',
     'popup_link_new_window' => 1,
-    'popup_position' => FALSE,
+    'cookie_policy_version' => '1.0.0',
+    'containing_element' => 'body',
     'use_bare_css' => 0,
-    'popup_text_hex' => 'ffffff',
-    'popup_bg_hex' => '0779BF',
     'popup_height' => '',
-    'popup_width' => '100%',
+    'branding_header' => '',
+    'branding_logo_path' => '',
+    'branding_logo_upload' => '',
+    'popup_theme' => 'design1',
     'fixed_top_position' => 0,
     'popup_delay' => '1000',
     'disagree_do_not_show_popup' => 0,
     'reload_page' => 0,
-    'popup_scrolling_confirmation' => 0,
+    'popup_scrolling_confirmation' => FALSE,
     'cookie_name' => '',
     'domains_option' => '1',
     'domains_list' => '',
@@ -124,6 +152,7 @@ Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
     'script_scope' => 'footer',
     'better_support_for_screen_readers' => 0,
     'cookie_session' => 0,
+    'notification_email' => '',
   );
   $export['eu_cookie_compliance'] = $strongarm;
 
