@@ -72,3 +72,8 @@ body.eu-cookie-compliance-popup-closed .sliding-popup-popup .eu-cookie-withdraw-
   height: 30px;
   transform: translate(50%) rotate(-90deg);
 }
+
+body.eu-cookie-compliance-popup-closed .sliding-popup-popup .eu-cookie-withdraw-tab {
+  background-color: #00679B;
+  color: #ffffff !important;
+}

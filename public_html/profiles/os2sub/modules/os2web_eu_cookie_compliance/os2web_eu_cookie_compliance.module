@@ -531,4 +531,8 @@ EOL;
     ),
   );
   variable_set('eu_cookie_compliance', $os2web_eu_cookie_compliance_settings + $popup_settings);
+  if (function_exists('i18n_variable_set')) {
+    global $language;
+    i18n_variable_set('eu_cookie_compliance', $os2web_eu_cookie_compliance_settings + $popup_settings, $language->language);
+  }
 }
