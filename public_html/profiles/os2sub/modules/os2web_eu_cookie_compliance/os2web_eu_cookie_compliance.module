@@ -277,7 +277,7 @@ function os2web_eu_cookie_compliance_preprocess_eu_cookie_compliance_popup_info(
     $vars['branding_logo'] = empty($popup_settings['branding_logo_path']) ? $logo_path : file_create_url($popup_settings['branding_logo_path']);
     $vars['branding_header'] = empty($popup_settings['branding_header']) ? NULL : $popup_settings['branding_header'];
 
-    $allowed_cookies_enriched = empty($popup_settings['allowed_cookies_enriched']) ? array() : $popup_settings['allowed_cookies_enriched'];
+    $allowed_cookies_enriched = empty($popup_settings['allowed_cookies_enriched']) ? '' : $popup_settings['allowed_cookies_enriched'];
     $allowed_cookies_enriched_arr = _eu_cookie_compliance_explode_multiple_lines($allowed_cookies_enriched, FALSE);
     $allowed_cookies_enriched_arr = array_filter($allowed_cookies_enriched_arr, 'strlen');
     $cookie_categories = &$vars['cookie_categories'];
