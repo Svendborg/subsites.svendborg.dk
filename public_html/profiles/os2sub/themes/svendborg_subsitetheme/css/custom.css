@@ -29,3 +29,46 @@ a.is-dk-toggle:before {
 a.is-uk-toggle:before {
   background-image: url('../images/united-kingdom.png');
 }
+
+body #popupOverlay .eucc-button__accept {
+  background-image: linear-gradient(to bottom, #85c500 0%, #589000 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff85c500', endColorstr='#ff589000', GradientType=0);
+  border: none;
+}
+
+body #popupOverlay .eucc-button__accept:hover {
+  background-image: linear-gradient(to bottom, #589000 0%, #85c500 100%);
+}
+
+body .popup-banner__page-footer {
+  padding: 20px;
+}
+
+body .popup-banner__page-footer button {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body .popup-banner-consent-group {
+  margin-left: 20px;
+}
+
+body .popup-banner-consent-field label {
+  font-weight: normal;
+}
+
+body .popup-banner-consent-field input,
+body .popup-banner-consent-field label {
+  vertical-align: middle;
+  margin: 0;
+}
+
+body.eu-cookie-compliance-popup-closed .sliding-popup-popup .eu-cookie-withdraw-tab {
+  top: 550px;
+  right: 14px;
+  z-index: 950;
+  position: fixed;
+  left: auto;
+  height: 30px;
+  transform: translate(50%) rotate(-90deg);
+}
