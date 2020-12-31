@@ -525,6 +525,7 @@ EOL;
     'popup_link' => 'https://www.svendborg.dk/kommunen/presse-og-information/om-svendborgdk',
     'popup_position' => 'popup',
     'popup_width' => '700',
+    'reload_page' => 1,
     'popup_info' => array(
       'value' => $popup_text,
       'format' => 'full_html'
