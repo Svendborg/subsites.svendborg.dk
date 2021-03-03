@@ -521,6 +521,7 @@ læse vores erklæring om indsamling og behandling af personoplysninger ved at
 klikke på linket herunder.</p>
 EOL;
   $os2web_eu_cookie_compliance_settings = array(
+    'consent_storage_method' => 'basic',
     'save_preferences_button_label' => 'Gem indstillinger',
     'accept_all_categories_button_label' => 'Accepter alle',
     'only_required_button_label' => 'Kun nødvendige',
