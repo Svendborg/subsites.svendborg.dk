@@ -20,12 +20,24 @@ function os2sub_uses_and_tools_filter_default_formats() {
     'weight' => 1,
     'filters' => array(
       'media_filter' => array(
-        'weight' => 2,
+        'weight' => -47,
+        'status' => 1,
+        'settings' => array(),
+      ),
+      'filter_url' => array(
+        'weight' => -46,
+        'status' => 1,
+        'settings' => array(
+          'filter_url_length' => 72,
+        ),
+      ),
+      'filter_autop' => array(
+        'weight' => -43,
         'status' => 1,
         'settings' => array(),
       ),
       'filter_htmlcorrector' => array(
-        'weight' => 10,
+        'weight' => -42,
         'status' => 1,
         'settings' => array(),
       ),

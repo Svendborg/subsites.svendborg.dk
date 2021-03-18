@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.features.user_permission.inc
@@ -77,6 +78,16 @@ function os2sub_uses_and_tools_user_default_permissions() {
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contextual',
+  );
+
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'subsiteadmin' => 'subsiteadmin',
+    ),
+    'module' => 'media',
   );
 
   // Exported permission: 'access own webform results'.
@@ -712,6 +723,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['delete any image files'] = array(
     'name' => 'delete any image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -848,6 +860,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['delete own image files'] = array(
     'name' => 'delete own image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1074,6 +1087,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'name' => 'display EU Cookie Compliance popup',
     'roles' => array(
       'anonymous user' => 'anonymous user',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'eu_cookie_compliance',
   );
@@ -1100,6 +1114,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['download any image files'] = array(
     'name' => 'download any image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1136,6 +1151,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['download own image files'] = array(
     'name' => 'download own image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1201,6 +1217,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['edit any image files'] = array(
     'name' => 'edit any image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1347,6 +1364,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['edit own image files'] = array(
     'name' => 'edit own image files',
     'roles' => array(
+      'Editor' => 'Editor',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'file_entity',
@@ -1634,15 +1652,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'schedule (un)publishing of nodes'.
-  $permissions['schedule (un)publishing of nodes'] = array(
-    'name' => 'schedule (un)publishing of nodes',
-    'roles' => array(
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'scheduler',
   );
 
   // Exported permission: 'select account cancellation method'.

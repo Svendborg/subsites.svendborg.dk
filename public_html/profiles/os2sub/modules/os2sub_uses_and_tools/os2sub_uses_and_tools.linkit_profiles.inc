@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.linkit_profiles.inc
@@ -73,6 +74,7 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
       ),
+      'url_type' => 'entity',
     ),
     'entity:taxonomy_term' => array(
       'result_description' => '',
@@ -193,6 +195,7 @@ function os2sub_uses_and_tools_default_linkit_profiles() {
         'thumbnail' => 'thumbnail',
         'dimensions' => 'dimensions',
       ),
+      'url_type' => 'entity',
     ),
     'entity:taxonomy_term' => array(
       'result_description' => '',
