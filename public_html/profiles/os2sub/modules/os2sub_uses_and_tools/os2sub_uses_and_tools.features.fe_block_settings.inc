@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.features.fe_block_settings.inc
@@ -31,12 +32,6 @@ function os2sub_uses_and_tools_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
-      'os2web_bootstrap_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'os2web_bootstrap_theme',
         'weight' => 0,
       ),
       'svendborg_subsitetheme' => array(

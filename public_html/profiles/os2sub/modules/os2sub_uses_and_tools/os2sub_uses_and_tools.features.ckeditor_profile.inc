@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_uses_and_tools.features.ckeditor_profile.inc
@@ -12,8 +13,8 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
     'CKEditor Global Profile' => array(
       'name' => 'CKEditor Global Profile',
       'settings' => array(
-        'skin' => 'bootstrapck',
-        'ckeditor_path' => '%l/ckeditor',
+        'skin' => 'moono-lisa',
+        'ckeditor_path' => '//cdn.ckeditor.com/4.14.0/full-all',
         'ckeditor_local_path' => '',
         'ckeditor_plugins_path' => '%l/ckeditor/plugins',
         'ckeditor_plugins_local_path' => '',
@@ -52,8 +53,8 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
         'width' => '100%',
         'lang' => 'da',
         'auto_lang' => 't',
-        'language_direction' => 'ltr',
-        'allowed_content' => 't',
+        'language_direction' => 'default',
+        'allowed_content' => 'f',
         'extraAllowedContent' => '',
         'enter_mode' => 'p',
         'shift_enter_mode' => 'br',
@@ -69,8 +70,8 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
             'pre_indent' => 0,
           ),
         ),
-        'css_mode' => 'none',
-        'css_path' => '',
+        'css_mode' => 'self',
+        'css_path' => '%tcss/editor.css',
         'css_style' => 'theme',
         'styles_path' => '',
         'filebrowser' => 'none',
