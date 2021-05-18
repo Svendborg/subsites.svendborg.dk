@@ -186,6 +186,31 @@
     </div>
     <div class="clearfix"></div>
 
+    <?php if (theme_get_setting('instagram_hash_feed','svendborg_subsitetheme')) :?>
+    <div>
+      <div class="row">
+        <div id="instagram_feed"></div>
+
+        <script >
+          (function($){
+            $(window).on('load', function(){
+              $.instagramFeed({
+                'tag': 'paradise',
+                'container': "#instagram_feed",
+                'display_profile': true,
+                'display_gallery': true,
+                'display_captions': true,
+                'items': 6,
+                'items_per_row': 3,
+                'margin': 0.5
+              });
+            });
+          })(jQuery);
+        </script>
+      </div>
+    </div>
+    <?php endif;?>
+
   </div>
 
   <!--<div class='front-main-container-shadow'></div> -->

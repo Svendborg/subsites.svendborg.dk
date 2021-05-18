@@ -1,19 +1,19 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
 function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_state) {
-  
+
    $form['subsitetheme_settings'] = array(
     '#type' => 'vertical_tabs',
     '#prefix' => '<h2><small>' . t('Site Settings') . '</small></h2>',
     '#weight' => -11,
-  ); 
-  
+  );
+
   $form['svendborg_subsitetheme_setting']['menu_location'] = array(
     '#type'          => 'fieldset',
     '#title' => 'Menu',
@@ -30,21 +30,21 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
        ),
     '#default_value' => theme_get_setting('menu_location_setting', 'svendborg_subsitetheme'),
   );
-  
+
   $form['svendborg_subsitetheme_setting']['menu_location']['menu_width'] = array(
     '#type' => 'checkbox',
     '#title' => t('Wide <strong>left</strong> menu'),
     '#default_value' => theme_get_setting('menu_width'),
     '#description'   => t("Only valid with left menu position."),
   );
-  
+
     $form['svendborg_subsitetheme_setting']['menu_location']['menu_footer'] = array(
     '#type' => 'checkbox',
     '#title' => t('Footer menu'),
     '#default_value' => theme_get_setting('menu_footer'),
     '#description'   => t("Show footer menu."),
   );
-  
+
 
   // Note: changed "TRUE" to "0" but I really doubt if this is the correct solution -- Riivo.
   if (theme_get_setting('menu_width') == 0) {
@@ -106,11 +106,17 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('activites','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show Activites block in page."),
   );
- $form['svendborg_subsitetheme_setting']['frontpage_layout']['facebookfeed'] = array(
+  $form['svendborg_subsitetheme_setting']['frontpage_layout']['facebookfeed'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show <strong>Facebook Page Feed block</strong> on the frontpage'),
     '#default_value' => theme_get_setting('facebookfeed','svendborg_subsitetheme'),
     '#description'   => t("Input the Facebook URL to show a Facebook Page Feed on the frontpage."),
+  );
+  $form['svendborg_subsitetheme_setting']['frontpage_layout']['instagram_hash_feed'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Instagram feed (by #hash)'),
+    '#default_value' => theme_get_setting('instagram_hash_feed', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter the #hash, you want to display on the frontpage. Leave blank to hide."),
   );
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['newstext'] = array(
     '#type' => 'textfield',
@@ -158,11 +164,11 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#title' => t('Show <strong> latest news in frontpage</strong>'),
     '#default_value' => theme_get_setting('latest_news','svendborg_subsitetheme'),
     '#options' => array(0 => t('don\'t show'), 2 => t('2 columns block'), 3 => t('3 columns block')),
-    
+
     '#description'   => t("Check this option to show latest news block."),
  );
- 
- 
+
+
  $form['svendborg_subsitetheme_setting']['slider_settings'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Slider banner settings'),
@@ -205,14 +211,14 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
     '#default_value' => theme_get_setting('calendar_page_slider_text','svendborg_subsitetheme'),
     '#description'   => t("Text for banner on calendar page"),
  );
- 
+
  $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_slider_overlay'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show dark overlay on <strong>calendar slider</strong>'),
     '#default_value' => theme_get_setting('calendar_slider_overlay','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show dark overlay on the calendar slider banner"),
  );
-  
+
   $form['svendborg_subsitetheme_setting']['slider_settings']['project_page_slider_image'] = array(
    '#title' => t('Project page banner'),
     '#description' => t('Banner image for project page'),
@@ -224,7 +230,7 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
  ),
     '#default_value' => theme_get_setting('project_page_slider_image','svendborg_subsitetheme'),
   );
- 
+
 $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#type' => 'fieldset',
     '#title' => t('Social Icon'),
@@ -232,7 +238,7 @@ $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
- 
+
  $form['svendborg_subsitetheme_setting']['socialicon']['twitter_url'] = array(
     '#type' => 'textfield',
     '#title' => t('Twitter Profile URL'),
@@ -333,7 +339,7 @@ $form_state['build_info']['files'][] = str_replace("/$active_theme.info", '', $t
 
 function svendborg_subsitetheme_settings_form_submit(&$form, $form_state) {
   $image_fid = $form_state['values']['calendar_page_slider_image'];
-  
+
   $image = file_load($image_fid);
   if (is_object($image)) {
 
@@ -349,7 +355,7 @@ function svendborg_subsitetheme_settings_form_submit(&$form, $form_state) {
 
   }
   $image_fid2 = $form_state['values']['project_page_slider_image'];
-  
+
   $image2 = file_load($image_fid2);
   if (is_object($image2)) {
 
