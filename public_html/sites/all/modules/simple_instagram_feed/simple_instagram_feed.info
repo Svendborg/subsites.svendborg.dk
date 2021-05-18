@@ -1,0 +1,13 @@
+name = Simple Instagram Feed
+description = Creates a block with a dynamic Instagram Feed using https://github.com/jsanahuja/jquery.instagramFeed.
+package = Social
+type = module
+core = 7.x
+dependencies[] = libraries
+dependencies[] = jquery_update
+
+; Information added by Drupal.org packaging script on 2021-03-12
+version = "7.x-1.8"
+core = "7.x"
+project = "simple_instagram_feed"
+datestamp = "1615580913"

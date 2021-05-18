@@ -1,0 +1,275 @@
+<?php
+
+/**
+ * @file
+ * Drupal Module: Simple Instagram Feed.
+ *
+ * Simple Instagram Feed is a module that
+ * provides blocks to display instagram
+ * feeds.
+ *
+ * author: Andrew Wasson <https://drupal.org/user/127091>
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function simple_instagram_feed_block_info() {
+  $blocks = array();
+  $blocks['simple_instagram_block'] = array(
+    'info' => t('Simple Instagram Feed Block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function simple_instagram_feed_block_configure($delta = '') {
+  $form = array();
+
+  switch ($delta) {
+    case 'simple_instagram_block':
+      // Instagram username.
+      $form['simple_instagram_username'] = [
+        '#type' => 'textfield',
+        '#title' => t('Instagram username'),
+        '#description' => t('Insert the username of the instagram account in the field above.'),
+        '#default_value' => variable_get('simple_instagram_username', 'instagram'),
+        '#required' => TRUE,
+      ];
+
+      // Display profile?
+      $form['simple_instagram_display_profile'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Display profile?'),
+        '#description' => t('Do you wish to display the Instagram profile on this Instagram Feed?'),
+        '#default_value' => variable_get('simple_instagram_display_profile', 1),
+      ];
+
+      $form['simple_instagram_display_biography'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Display bio?'),
+        '#description' => t('Do you wish to display the Instagram Bio on this Instagram Feed?'),
+        '#default_value' => variable_get('simple_instagram_display_biography', 1),
+      ];
+
+      $form['simple_instagram_captions'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Display Captions'),
+        '#description' => t('Enables displaying captions for each post as overlay on hover.'),
+        '#default_value' => variable_get('simple_instagram_captions', 0),
+        '#attributes' => [
+          'id' => 'simple_instagram_captions',
+        ],
+      ];
+
+      $form['simple_instagram_items'] = [
+        '#type' => 'textfield',
+        '#size' => 3,
+        '#maxlength' => 3,
+        '#title' => t('Number of images'),
+        '#description' => t('How many images do you wish to feature on this Instagram Feed? The maximum is 12 images which is a limitation of the Instagramfeed Javascript library.'),
+        '#default_value' => variable_get('simple_instagram_items', '12'),
+        '#required' => TRUE,
+      ];
+
+      $form['simple_instagram_items_per_row'] = [
+        '#type' => 'fieldset',
+        '#title' => t('Number of images per row?')
+      ];
+
+      $form['simple_instagram_items_per_row']['simple_instagram_items_per_row_type'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Check it if you want to choose how many images to display depends on the window size.'),
+      '#default_value' => variable_get('simple_instagram_items_per_row_type', '0'),
+      '#attributes' => [
+        'id' => 'simple_instagram_items_per_row_type',
+        ],
+      ];
+
+      $simple_items_range = range(1, 12);
+
+      $form['simple_instagram_items_per_row']['simple_instagram_items_per_row_default'] = [
+        '#type' => 'select',
+        '#options' => [$simple_items_range],
+        '#title' => t('Number of images per row for all window size.'),
+        '#description' => t('How many images do you wish to feature on each row of this Instagram Feed? You can produce a single row if you set the number of images to equal the number of images per row.'),
+        '#default_value' => variable_get('simple_instagram_items_per_row_default', '5'),
+        '#states' => [
+        'visible' => [
+            ':input[id="simple_instagram_items_per_row_type"]' => ['checked' => FALSE],
+          ],
+        ],
+      ];
+
+      $form['simple_instagram_items_per_row']['simple_instagram_items_per_row_l_720'] = [
+        '#type' => 'select',
+        '#options' => [$simple_items_range],
+        '#title' => t('Number of images per row if window size is <720px.'),
+        '#description' => t('How many images do you wish on each row if the user window size is lower than 720px.'),
+        '#default_value' => variable_get('simple_instagram_items_per_row_l_720', '5'),
+        '#states' => [
+          'visible' => [
+            ':input[id="simple_instagram_items_per_row_type"]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
+
+      $form['simple_instagram_items_per_row']['simple_instagram_items_per_row_l_960'] = [
+        '#type' => 'select',
+        '#options' => [$simple_items_range],
+        '#title' => t('Number of images per row if window size is >= 720px and < 960.'),
+        '#description' => t('How many images do you wish on each row if the user window size is lower than 960px and higher than 720px.'),
+        '#default_value' => variable_get('simple_instagram_items_per_row_l_960', '5'),
+        '#states' => [
+          'visible' => [
+            ':input[id="simple_instagram_items_per_row_type"]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
+
+      $form['simple_instagram_items_per_row']['simple_instagram_items_per_row_h_960'] = [
+        '#type' => 'select',
+        '#options' => [$simple_items_range],
+        '#title' => t('Number of images per row if window size is >=960px.'),
+        '#description' => t('How many images do you wish on each row if the user window size is higher than 960px.'),
+        '#default_value' => variable_get('simple_instagram_items_per_row_h_960', '5'),
+        '#states' => [
+        'visible' => [
+            ':input[id="simple_instagram_items_per_row_type"]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
+
+      $form['simple_instagram_styling'] = [
+        '#type' => 'select',
+        '#options' => ['true' => 'True', 'false' => 'False'],
+        '#title' => t('Styling'),
+        '#description' => t('Set to False to omit instagramFeed styles and provide your own in your CSS.'),
+        '#states' => [
+        'disabled' => [
+            ':input[id="simple_instagram_captions"]' => ['checked' => TRUE],
+          ],
+        ],
+        '#default_value' => variable_get('simple_instagram_styling', 'true'),
+      ];
+
+      $simple_image_sizes = [
+        '640' => 640,
+        '480' => 480,
+        '320' => 320,
+        '240' => 240,
+        '150' => 150,
+      ];
+
+      $form['simple_instagram_image_size'] = [
+        '#type' => 'select',
+        '#options' => $simple_image_sizes,
+        '#title' => t('Image Size'),
+        '#description' => t('Scale of items to build gallery. Accepted values [150, 240, 320, 480, 640].'),
+        '#default_value' => variable_get('simple_instagram_image_size', 640),
+      ];
+
+      $form['simple_instagram_lazy_load'] = [
+        '#type' => 'checkbox',
+        '#title' => t('Lazyload assets'),
+        '#description' => t('Do you wish to Lazy-load on this Instagram Feed?'),
+        '#default_value' => variable_get('simple_instagram_lazy_load', 0),
+      ];
+
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function simple_instagram_feed_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'simple_instagram_block':
+      variable_set('simple_instagram_username', $edit['simple_instagram_username']);
+      variable_set('simple_instagram_display_profile', $edit['simple_instagram_display_profile']);
+      variable_set('simple_instagram_display_biography', $edit['simple_instagram_display_biography']);
+      variable_set('simple_instagram_items', $edit['simple_instagram_items']);
+      variable_set('simple_instagram_items_per_row_type', $edit['simple_instagram_items_per_row_type']);
+      variable_set('simple_instagram_items_per_row_default', $edit['simple_instagram_items_per_row_default']);
+      variable_set('simple_instagram_items_per_row_l_720', $edit['simple_instagram_items_per_row_l_720']);
+      variable_set('simple_instagram_items_per_row_l_960', $edit['simple_instagram_items_per_row_l_960']);
+      variable_set('simple_instagram_items_per_row_h_960', $edit['simple_instagram_items_per_row_h_960']);
+      variable_set('simple_instagram_styling', $edit['simple_instagram_styling']);
+      variable_set('simple_instagram_captions', $edit['simple_instagram_captions']);
+      variable_set('simple_instagram_image_size', $edit['simple_instagram_image_size']);
+      variable_set('simple_instagram_lazy_load', $edit['simple_instagram_lazy_load']);
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function simple_instagram_feed_block_view($delta = '') {
+  if ($delta == 'simple_instagram_block') {
+    $path = drupal_get_path('module', 'simple_instagram_feed');
+    $block = [
+      'subject' => t('Block title'),
+      'content' => [
+        '#markup' => '<div class="instagram-feed"></div>',
+        '#attached' => [
+          'css' => [
+            'data' => $path . '/css/simple_instagram_feed.css',
+          ],
+          'js' => [
+            'data' => $path . '/js/simple_instagram_feed.js',
+          ],
+          'libraries_load' => [
+            ['jqueryinstagramfeed'],
+          ],
+        ],
+      ],
+    ];
+    return $block;
+  }
+}
+
+/**
+ * Implements hook_libraries_info().
+ */
+function simple_instagram_feed_libraries_info() {
+  // Use Libraries API to define the instagramFeed plugin.
+  $libraries['jqueryinstagramfeed'] = [
+    'name' => 'Simple Instagram Feed',
+    'vendor url' => 'https://github.com/jsanahuja/jquery.instagramFeed',
+    'download url' => 'https://github.com/jsanahuja/jquery.instagramFeed/archive/master.zip',
+    'version' => '1.2.1',
+    'files' => [
+      'js' => ['jquery.instagramFeed.min.js'],
+    ],
+  ];
+
+  return $libraries;
+}
+
+/**
+ * Implements hook_init().
+ */
+function simple_instagram_feed_init() {
+  $computed_data = [
+    'instagram_username' => variable_get('simple_instagram_username'),
+    'instagram_display_profile' => variable_get('simple_instagram_display_profile', array()),
+    'instagram_display_biography' => variable_get('simple_instagram_display_biography', array()),
+    'instagram_items' => variable_get('simple_instagram_items'),
+    'instagram_items_per_row_type' => variable_get('simple_instagram_items_per_row_type'),
+    'instagram_items_per_row_default' => variable_get('simple_instagram_items_per_row_default') + 1,
+    'instagram_items_per_row_l_720' => variable_get('simple_instagram_items_per_row_l_720') + 1,
+    'instagram_items_per_row_l_960' => variable_get('simple_instagram_items_per_row_l_960') + 1,
+    'instagram_items_per_row_h_960' => variable_get('simple_instagram_items_per_row_h_960') + 1,
+    'instagram_styling' => variable_get('simple_instagram_styling'),
+    'instagram_captions' => variable_get('simple_instagram_captions'),
+    'instagram_image_size' => variable_get('simple_instagram_image_size'),
+    'instagram_lazy_load' => variable_get('simple_instagram_lazy_load'),
+  ];
+  drupal_add_js(array('simple_instagram_feed' => $computed_data), 'setting');
+}
