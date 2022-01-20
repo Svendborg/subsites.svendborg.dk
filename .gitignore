@@ -20,3 +20,5 @@ public_html/sites/cbuf-svendborg-subsite.dd
 /public_html/sites/svendborg-subsite.dd
 .DS_Store
 .idea
+
+public_html/sites/*bellcom.dk
