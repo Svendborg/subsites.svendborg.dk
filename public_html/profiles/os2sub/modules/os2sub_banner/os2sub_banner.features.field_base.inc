@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_banner.features.field_base.inc
@@ -10,32 +11,7 @@
 function os2sub_banner_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_skjul_titel'
-  $field_bases['field_skjul_titel'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_skjul_titel',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 'no',
-        1 => 'yes',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_banner_billede'
+  // Exported field_base: 'field_banner_billede'.
   $field_bases['field_banner_billede'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -57,7 +33,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_banner_text'
+  // Exported field_base: 'field_banner_text'.
   $field_bases['field_banner_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -78,7 +54,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_banner_vis_paa_sider'
+  // Exported field_base: 'field_banner_vis_paa_sider'.
   $field_bases['field_banner_vis_paa_sider'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -117,7 +93,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_hvid_tekst'
+  // Exported field_base: 'field_hvid_tekst'.
   $field_bases['field_hvid_tekst'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -142,7 +118,7 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_knap_link'
+  // Exported field_base: 'field_knap_link'.
   $field_bases['field_knap_link'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -169,6 +145,31 @@ function os2sub_banner_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_skjul_titel'.
+  $field_bases['field_skjul_titel'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_skjul_titel',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'no',
+        1 => 'yes',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   return $field_bases;

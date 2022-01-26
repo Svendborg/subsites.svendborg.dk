@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_banner.views_default.inc
@@ -65,7 +66,7 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filterkriterie: Indhold: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -118,7 +119,7 @@ function os2sub_banner_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => '',
   );
-  /* Felt: Indhold: Redigér-link */
+  /* Felt: Indhold: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -143,7 +144,7 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filterkriterie: Indhold: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -157,7 +158,7 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'banner' => 'banner',
   );
-  /* Filterkriterie: Indhold: Forfremmet til forside */
+  /* Filterkriterie: Indhold: Promoted to front page status */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
@@ -186,9 +187,6 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['css_class'] = 'container';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'panel';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -217,11 +215,34 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['type'] = 'slideshow';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
-    'image_style' => 'os2sub_banner',
-    'image_link' => '',
+    'slideshow_image_style' => 'os2sub_banner',
+    'slideshow_link' => '',
+    'slideshow_caption' => '',
+    'slideshow_caption_link' => '',
+    'slideshow_fx' => 'fade',
+    'slideshow_speed' => '1000',
+    'slideshow_timeout' => '4000',
+    'slideshow_order' => '',
+    'slideshow_controls' => 0,
+    'slideshow_controls_pause' => 0,
+    'slideshow_controls_position' => 'after',
+    'slideshow_pause' => 0,
+    'slideshow_start_on_hover' => 0,
+    'slideshow_pager' => '',
+    'slideshow_pager_position' => 'after',
+    'slideshow_pager_image_style' => '',
+    'slideshow_carousel_image_style' => '',
+    'slideshow_carousel_visible' => '3',
+    'slideshow_carousel_scroll' => '1',
+    'slideshow_carousel_speed' => '500',
+    'slideshow_carousel_skin' => '',
+    'slideshow_carousel_follow' => 0,
+    'slideshow_carousel_vertical' => 0,
+    'slideshow_carousel_circular' => 0,
   );
-  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
@@ -237,7 +258,7 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filterkriterie: Indhold: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -371,7 +392,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#000000\', e
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filterkriterie: Indhold: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';

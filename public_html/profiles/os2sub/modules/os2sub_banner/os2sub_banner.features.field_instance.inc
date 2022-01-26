@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * os2sub_banner.features.field_instance.inc
@@ -10,7 +11,7 @@
 function os2sub_banner_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-banner-field_banner_billede'
+  // Exported field_instance: 'node-banner-field_banner_billede'.
   $field_instances['node-banner-field_banner_billede'] = array(
     'bundle' => 'banner',
     'deleted' => 0,
@@ -25,6 +26,12 @@ function os2sub_banner_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -48,9 +55,11 @@ function os2sub_banner_field_default_field_instances() {
       'default_image' => 0,
       'epsacrop' => array(
         'styles' => array(
+          'nyheder_140x140' => 0,
           'os2sub_220x130' => 0,
           'os2sub_300x175' => 0,
           'os2sub_banner' => 'os2sub_banner',
+          'os2web_spotbox_image' => 0,
           'svendborg_content_image' => 0,
           'svendborg_spotbox' => 0,
         ),
@@ -69,7 +78,6 @@ function os2sub_banner_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
-          'youtube' => 0,
         ),
         'allowed_types' => array(
           'audio' => 0,
@@ -82,16 +90,14 @@ function os2sub_banner_field_default_field_instances() {
           'media_default--media_browser_my_files' => 0,
           'media_internet' => 0,
           'upload' => 'upload',
-          'youtube' => 0,
         ),
-        'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
       'weight' => 7,
     ),
   );
 
-  // Exported field_instance: 'node-banner-field_banner_text'
+  // Exported field_instance: 'node-banner-field_banner_text'.
   $field_instances['node-banner-field_banner_text'] = array(
     'bundle' => 'banner',
     'default_value' => NULL,
@@ -104,6 +110,12 @@ function os2sub_banner_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 5,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -164,7 +176,7 @@ function os2sub_banner_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-banner-field_banner_vis_paa_sider'
+  // Exported field_instance: 'node-banner-field_banner_vis_paa_sider'.
   $field_instances['node-banner-field_banner_vis_paa_sider'] = array(
     'bundle' => 'banner',
     'default_value' => NULL,
@@ -177,6 +189,12 @@ function os2sub_banner_field_default_field_instances() {
         'settings' => array(),
         'type' => 'node_reference_default',
         'weight' => 2,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -209,7 +227,7 @@ function os2sub_banner_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-banner-field_hvid_tekst'
+  // Exported field_instance: 'node-banner-field_hvid_tekst'.
   $field_instances['node-banner-field_hvid_tekst'] = array(
     'bundle' => 'banner',
     'default_value' => array(
@@ -226,6 +244,12 @@ function os2sub_banner_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 3,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -258,7 +282,80 @@ function os2sub_banner_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-banner-field_skjul_titel'
+  // Exported field_instance: 'node-banner-field_knap_link'.
+  $field_instances['node-banner-field_knap_link'] = array(
+    'bundle' => 'banner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 4,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_knap_link',
+    'label' => 'Knap / link',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => 'nofollow',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Søg internt',
+        'enable' => 1,
+        'profile' => 'os2sub_linkit',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-banner-field_skjul_titel'.
   $field_instances['node-banner-field_skjul_titel'] = array(
     'bundle' => 'banner',
     'default_value' => array(
@@ -275,6 +372,12 @@ function os2sub_banner_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 3,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -304,71 +407,6 @@ function os2sub_banner_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'node-banner-field_knap_link'
-  $field_instances['node-banner-field_knap_link'] = array(
-    'bundle' => 'banner',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'link',
-        'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 4,
-      ),
-      'spotbox' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_knap_link',
-    'label' => 'Knap / link',
-    'required' => 0,
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'configurable_title' => 0,
-        'rel' => 'nofollow',
-        'target' => 'default',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'linkit' => array(
-        'button_text' => 'Søg internt',
-        'enable' => 1,
-        'profile' => 'os2sub_linkit',
-      ),
-      'rel_remove' => 'default',
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-      'user_register_form' => FALSE,
-      'validate_url' => 1,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'link',
-      'settings' => array(),
-      'type' => 'link_field',
-      'weight' => 6,
     ),
   );
 
