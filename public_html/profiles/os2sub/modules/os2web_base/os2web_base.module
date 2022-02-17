@@ -123,3 +123,14 @@ function os2web_base_webform_node_defaults_alter(&$defaults) {
   $defaults['confirmation_format'] = 'full_html';
   $defaults['redirect_url'] = '<none>';
 }
+
+/** 
+ * Implements hook_node_update(). 
+*/
+function os2web_base_node_update($node) {
+ // Clear cache on node update
+ cache_clear_all('field:node:' . $node->nid, 'cache_field');
+ $path = url('node/' . $node->nid, array('absolute' => TRUE));
+ cache_clear_all($path, 'cache_page');
+}
+
