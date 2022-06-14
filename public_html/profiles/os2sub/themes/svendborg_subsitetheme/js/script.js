@@ -1,7 +1,23 @@
 /* Svendborg theme script
 */
-( function ($) {  
+( function ($) {
    $(document).ready(function(){
+     // A hash is set in the URL
+     if (window.location.hash) {
+       setTimeout(function () {
+         var hash = window.location.hash,
+           $target = $(hash);
+
+         // The hash refers to a panel
+         if ($target.length && $target.hasClass('panel', 'collapsible')) {
+
+           // Let's open the target automatically
+           $target.find('.collapse')
+             .first()
+             .collapse();
+         }
+       }, 500);
+     }
 
      $('.header_fixed .navbar-nav > li > .dropdown-menu .dropdown > a')
        .removeAttr('data-target')
@@ -17,28 +33,44 @@
      $(this).removeAttr('data-toggle');
     });
     check_button(button);
-    
-     if (location.hash){        
+
+     if (location.hash){
         $(location.hash).find('.short-aktivity').css('display', 'none');
         $(location.hash).find('.full-aktivity').css('display', 'inline-block');
-         
+
         var offset = $(location.hash).offset().top-$('header').height()*2;
         if ($('#toolbar').length > 0)
              offset = offset - $('#toolbar').height();
          if ($('#top_menu').length > 0)
              offset = offset - $('#top_menu').height();
-         console.log(offset);
- 
-          $("body, html").animate({"scrollTop":offset},"slow");        
+
+          $("body, html").animate({"scrollTop":offset},"slow");
      }
-     
+     setTimeout(function() {
+       var $panels = $('fieldset.panel.collapsible');
+
+       // Run through all panels
+       $panels.each(function (index, element) {
+         var $element = $(this),
+           current_url = location.href.replace(window.location.hash, ''),
+           link = current_url + '#' + $element.attr('id'),
+           $target_link = $('<a />')
+             .addClass('panel-direct-link')
+             .attr('href', link)
+             .html($('<span />').addClass('icon fa fa-link'));
+
+         // Add the link inside the panels body
+         $element.find('.panel-body').prepend($target_link);
+       });
+     }, 500);
+
     function check_button(button){
       $('.filter-link').removeClass(button_class);
       $('.filter-link').addClass(button_normal);
       $('#'+button).addClass(button_class);
       $('#'+button).removeClass(button_normal);
     }
- 
+
     // filter buttons.
     $('.filter-link').click(function(event){
       $(this).addClass(button_class);
@@ -296,8 +328,8 @@ Drupal.behaviors.bookPlace = {
 };
 Drupal.behaviors.calendarEvent = {
   attach: function (){
- 
-$('.short-aktivity').each(function() {     
+
+$('.short-aktivity').each(function() {
         $(this).children().children('.open-activity').click(function(event){
           var container= $(this).closest('.event-content');
              $('.short-aktivity').css('display', 'inline-block');
@@ -307,7 +339,7 @@ $('.short-aktivity').each(function() {
           return false;
         });
      });
-   
+
   }
 };
 })( jQuery );

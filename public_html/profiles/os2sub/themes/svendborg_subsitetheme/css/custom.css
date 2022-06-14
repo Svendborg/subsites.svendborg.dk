@@ -77,3 +77,13 @@ body.eu-cookie-compliance-popup-closed .sliding-popup-popup .eu-cookie-withdraw-
   background-color: #00679B;
   color: #ffffff !important;
 }
+.panel-direct-link {
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.panel-direct-link .icon {
+  font-size: 16px;
+  color: #a6a6a6;
+}
+
